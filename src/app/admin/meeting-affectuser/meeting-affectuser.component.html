@@ -1,0 +1,13 @@
+<form [formGroup]="affectationForm" (ngSubmit)="affecterUserAmeet()">
+  
+  <div class="form-group">
+    <label for="user">Sélectionner les utilisateurs :</label>
+    <input type="text" class="form-control" placeholder="Rechercher un utilisateur..." [formControl]="searchControl">
+    <div *ngFor="let user of users; let i = index">
+      <div *ngIf="userCheckboxes[i].enabled">
+        <input type="checkbox" [formControl]="userCheckboxes[i]"> {{ user.username }}
+      </div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Affecter</button>
+</form>

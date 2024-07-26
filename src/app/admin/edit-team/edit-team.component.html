@@ -1,0 +1,27 @@
+<div class="popup-container">
+    <div class="popup-content container">
+      <h1>Modifier une équipe</h1>
+      <form (ngSubmit)="updateTeam()" [formGroup]="teamForm">
+        <div class="form-group">
+          <label for="teamName">Nom de l'équipe:</label>
+          <input type="text" formControlName="teamName" class="form-control" placeholder="Saisissez le nom de l'équipe">
+        </div>
+  
+        <div class="form-group">
+          <label for="teamLeader">Chef d'équipe:</label>
+          <input type="text" formControlName="teamLeader" class="form-control" placeholder="Saisissez le nom du chef d'équipe">
+        </div>
+  
+        <div class="form-group">
+          <label for="capacity">Capacité de l'équipe:</label>
+          <input type="number" formControlName="capacity" class="form-control" placeholder="Saisissez la capacité de l'équipe">
+        </div>
+        
+        <div class="form-group">
+          <button type="button" class="btn btn-secondary" (click)="onCancel()">Annuler</button>
+          <button type="submit" class="btn btn-primary">Modifier</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

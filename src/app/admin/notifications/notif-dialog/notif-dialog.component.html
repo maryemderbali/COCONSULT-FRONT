@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>Send Notification</h2>
+<form class="notification-form" (ngSubmit)="sendNotification()" #notificationForm="ngForm">
+  <div mat-dialog-content>
+    <div class="input-container">
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Title" name="title" [(ngModel)]="notification.title" required>
+      </mat-form-field>
+    </div>
+    <div class="input-container">
+      <mat-form-field class="full-width">
+        <textarea matInput placeholder="Message" name="message" [(ngModel)]="notification.message" required></textarea>
+      </mat-form-field>
+    </div>
+    <div class="input-container">
+      <mat-form-field class="full-width">
+        <mat-label>Select Roles</mat-label>
+        <mat-select placeholder="Roles" name="roles" [(ngModel)]="selectedRoles" multiple required>
+          <mat-option *ngFor="let role of roles" [value]="role">{{ role }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button type="button" class="btn btn-secondary" (click)="onNoClick()">Cancel</button>
+    <button mat-button color="primary" type="submit" class="btn btn-primary" [disabled]="notificationForm.invalid">Send</button>
+  </div>
+</form>

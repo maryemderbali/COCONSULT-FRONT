@@ -1,0 +1,61 @@
+/* Styles généraux pour le tableau et la pagination */
+.custom-table {
+  width: 100%;
+  margin-top: 30px;
+  background-color: #ffffff;
+  border-collapse: collapse; /* Assure que les bordures des cellules sont fusionnées */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.custom-table:hover {
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* Styles des cellules et des en-têtes de colonnes */
+th, td {
+  padding: 8px 16px;
+  text-align: left;
+  border-bottom: 1px solid #ccc; /* Ligne séparatrice subtile pour chaque rangée */
+}
+
+/* Alternance des couleurs des rangées pour améliorer la lisibilité */
+tr:nth-child(odd) {
+  background-color: #f9f9f9; /* Couleur claire pour les rangées impaires */
+}
+
+tr:nth-child(even) {
+  background-color: #e9f7fd; /* Couleur légèrement bleutée pour les rangées paires */
+}
+
+/* Animation au survol des rangées */
+tr:hover {
+  background-color: #d6e9f8; /* Bleu plus prononcé lors du survol */
+  transform: scale(1.01); /* Légère augmentation de taille pour attirer l'attention */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Styles spécifiques pour les boutons dans les cellules */
+button {
+  background-color: #4CAF50; /* Vert pour les actions */
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #45a049; /* Vert plus foncé au survol */
+  transform: translateY(-2px);
+}
+
+/* Pagination personnalisée pour rester dans le thème */
+.custom-paginator {
+  padding: 10px;
+  background-color: #f4f4f8;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-top: 20px;
+}

@@ -1,0 +1,17 @@
+<div class="container job-opportunities">
+  <div class="row">
+    <div class="col-md-4 col-sm-6 content-card" *ngFor="let job of jobOpports$ | async">
+      <div class="card job-card">
+        <div class="card-body" [ngClass]="'bg-' + job.color">
+          <h6 class="category">{{ job.titre }}</h6>
+          <h4 class="title"><a href="#">{{ job.title }}</a></h4>
+          <p class="description">{{ job.description }}</p>
+          <p class="description"><strong>Lieu:</strong> {{ job.lieu }}</p>
+          <p class="description"><strong>Qualification:</strong> {{ job.qualification }}</p>
+          <p class="description"><strong>Date limite:</strong> {{ job.datelimite }}</p>
+          <button (click)="postuler(job.id_offre)" mat-raised-button type="submit" class="btn btn-danger mx-auto mt-3 text-white">Postuler</button>
+        </div>
+      </div> <!-- end card -->
+    </div>
+  </div>
+</div>

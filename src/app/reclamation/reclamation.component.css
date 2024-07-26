@@ -1,0 +1,134 @@
+/* Style pour les icônes */
+.icon {
+    font-size: 240px; /* Taille de la police de l'icône */
+    margin-right: 8px; /* Marge à droite pour l'espacement */
+  }
+  
+  /* Style pour les boutons */
+  .button {
+    padding: 8px 16px; /* Remplissage du bouton */
+    border: none; /* Supprimer la bordure */
+    cursor: pointer; /* Curseur pointeur au survol */
+    background-color: #007bff; /* Couleur de fond du bouton */
+    color: white; /* Couleur du texte */
+    border-radius: 4px; /* Bordure arrondie */
+    transition: background-color 0.3s; /* Transition de couleur de fond */
+  }
+  
+  .button:hover {
+    background-color: #0056b3; /* Couleur de fond du bouton au survol */
+  }
+  .section-lg {
+    padding: 50px 0;
+  }
+  
+  .container {
+    padding:20px;
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  .card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ajoute une légère ombre */
+  }
+  
+  .chat-container {
+    height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+  }
+  
+  .chat-box {
+    margin-bottom: 10px;
+  }
+  
+  .message {
+    padding: 8px 12px;
+    border-radius: 4px;
+    max-width: 70%;
+  }
+  
+  .user-message {
+    background-color: #007bff;
+    color: #fff;
+    align-self: flex-end;
+  }
+  
+  .bot-message {
+    background-color: #f8f9fa;
+    color: #212529;
+    align-self: flex-start;
+  }
+  
+  .input-container {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .input-container input {
+    flex: 1;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+  }
+  
+  .input-container button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Ajoute une transition douce */
+  }
+  
+  .input-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Style pour le bouton "Voir tous les emplois" */
+  button.view-jobs {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px; /* Forme le bouton en forme de cercle */
+    background-color: #3928a7; /* Couleur verte */
+    color: #ffffff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Ajoute une transition douce */
+  }
+  
+  button.view-jobs:hover {
+    background-color: #218838; /* Couleur verte légèrement plus foncée au survol */
+  }
+  /* Style de base pour le bouton */
+  button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    background-color: #0056b3; /* Couleur de fond */
+    color: #ffffff; /* Couleur du texte */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Effet de survol */
+  button:hover {
+    background-color: #004080; /* Couleur de fond au survol */
+  }
+  
+  /* Effet de focus */
+  button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2); /* Ajoute une bordure au focus */
+  }
+  

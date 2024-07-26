@@ -1,0 +1,25 @@
+@import "~@fortawesome/fontawesome-free/css/all.css";
+table100 {
+    width: 100%;
+}
+
+.table100-body td {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+}
+.custom-header {
+    background-color: #507091;
+    color: white;
+    font-family: Arial, serif;
+    font-size: 22px;
+}
+.table100-head th {
+    padding: 10px;
+    font-size: 18px;
+    background-color: #4a97e5; /* Couleur de fond de l'en-tête */
+    color: white;
+    position: sticky;
+    top: 0; /* En-tête collée en haut */
+    z-index: 2; /* Assurez-vous que l'en-tête reste au-dessus du contenu de la table */
+}

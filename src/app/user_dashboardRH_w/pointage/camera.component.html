@@ -1,0 +1,11 @@
+<!-- camera.component.html -->
+<div class="camera-container">
+    <h2>Camera</h2>
+    
+    <video #videoPlayer autoplay></video>
+    <button (click)="toggleCamera()">Toggle Camera</button>
+    <button (click)="recordPointage()" [disabled]="!isCameraOn">Pointage</button>
+
+   
+
+</div>

@@ -1,0 +1,15 @@
+<form (ngSubmit)="ajouterQuiz()" #quizForm="ngForm">
+    <div class="form-group">
+      <label for="titre">Titre du quiz</label>
+      <input type="text" class="form-control" id="titre" name="titre" [(ngModel)]="quiz.titre" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="numberOfQuestions">Nombre de questions</label>
+      <input type="number" class="form-control" id="numberOfQuestions" name="numberOfQuestions" [(ngModel)]="quiz.numberOfQuestions" required>
+    </div>
+   
+    
+    <button type="submit" class="btn btn-primary">Ajouter Quiz</button>
+  </form>
+  

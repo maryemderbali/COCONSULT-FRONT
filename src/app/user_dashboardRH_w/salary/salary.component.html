@@ -1,0 +1,34 @@
+<h2 class="add-salary-title">Add salary</h2>
+
+<div class="form-group">
+  <label for="selectedUser" class="form-label">Select User:</label>
+  <select id="selectedUser" [(ngModel)]="selectedUser" class="form-control">
+    <option *ngFor="let employee of employees" [ngValue]="employee">{{ employee.username }}</option>
+  </select>
+</div>
+
+<div class="form-group">
+  <label for="salaryInput" class="form-label">Enter Salary:</label>
+  <input type="number" id="salaryInput" [(ngModel)]="salary" class="form-control">
+</div>
+
+<div class="form-group">
+  <label for="impotInput" class="form-label">Enter Impot:</label>
+  <input type="number" id="impotInput" [(ngModel)]="impot" class="form-control">
+</div>
+
+<div class="form-group">
+  <label for="currencyInput" class="form-label">Select Currency:</label>
+  <select id="currencyInput" [(ngModel)]="currency" class="form-control">
+    <option value="TND">Tunisian Dinar (TND)</option>
+    <option value="USD">US Dollar (USD)</option>
+    <!-- Add more currency options as needed -->
+  </select>
+</div>
+
+<button (click)="addSalary()" class="btn btn-primary">Add Salary</button>
+<button [routerLink]="['/user_dashboard/display-salaries']" class="btn btn-primary">Display Salaries</button>
+
+
+<hr>
+

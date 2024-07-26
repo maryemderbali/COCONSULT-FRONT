@@ -1,0 +1,27 @@
+<form (ngSubmit)="ajouterJob()" #jobForm="ngForm">
+    <div class="form-group">
+      <label for="titre">Titre du job</label>
+      <input type="text" class="form-control" id="titre" name="titre" [(ngModel)]="jobOpportunities.titre" required>
+    </div>
+    <div class="form-group">
+      <label for="dateLimite">dateLimite</label>
+      <input type="date" class="form-control" id="dateLimite" name="dateLimite" [(ngModel)]="jobOpportunities.dateLimite" required>
+    </div>
+    <div class="form-group">
+      <label for="qualifications">qualifications</label>
+      <input type="text" class="form-control" id="qualifications" name="qualifications" [(ngModel)]="jobOpportunities.qualifications" required>
+    </div>
+    <div class="form-group">
+        <label for="description">description</label>
+        <input type="text" class="form-control" id="description" name="description" [(ngModel)]="jobOpportunities.description" required>
+      </div>
+      <div class="form-group">
+        <label for="description">lieu</label>
+        <input type="text" class="form-control" id="lieu" name="lieu" [(ngModel)]="jobOpportunities.lieu" required>
+      </div>
+   
+    
+    <button type="submit" class="btn btn-primary">Ajouter Quiz</button>
+  </form>
+  
+

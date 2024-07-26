@@ -1,0 +1,35 @@
+<div class="popup-container">
+  <div class="popup-content container">
+    <h1>Ajouter un ticket</h1>
+    <form [formGroup]="ticketForm" (ngSubmit)="addTicket()">
+      <div class="form-group">
+        <label for="ticketPriority">Priorité du ticket:</label>
+        <select matInput formControlName="ticketPriority" class="form-control" required>
+          <option *ngFor="let priority of ticketPriority" [value]="priority">{{ priority }}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="ticketContent">Contenu du ticket:</label>
+        <textarea matInput formControlName="ticketContent" class="form-control" rows="3" placeholder="Saisissez le contenu du ticket" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="tickettitle">Titre du ticket:</label>
+        <input matInput formControlName="tickettitle" class="form-control" type="text" placeholder="Saisissez le titre du ticket" required>
+      </div>
+
+      <div class="form-group">
+        <label for="username">Assigner à:</label>
+        <select formControlName="username" class="form-control" required>
+          <option *ngFor="let user of users" [value]="user.username">{{ user.username }}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <button type="button" class="btn btn-secondary" (click)="onCancel()">Annuler</button>
+        <button type="submit" class="btn btn-primary">Ajouter</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+<div mat-dialog-title>
+  <h1>Activity Form</h1>
+</div>
+<form [formGroup]="activityForm" (ngSubmit)="onFormSubmit()">
+  <div mat-dialog-content class="content">
+    <div class="row">
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Repertoire</mat-label>
+        <mat-select formControlName="repertoireId" placeholder="Select repertoire">
+          <mat-option *ngFor="let repertoire of repertoires" [value]="repertoire.idRepertoire">{{ repertoire.contact }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Start Time</mat-label>
+        <input matInput formControlName="heureStart" type="datetime-local" placeholder="Enter start time">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>End Time</mat-label>
+        <input matInput formControlName="heureEnd" type="datetime-local" placeholder="Enter end time">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Description</mat-label>
+        <input matInput formControlName="description" placeholder="Enter description">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Type</mat-label>
+        <mat-select formControlName="typeAct" placeholder="Select type">
+          <mat-option value="REUNION">REUNION</mat-option>
+          <mat-option value="APPEL_TELEPHONIQUE">APPEL_TELEPHONIQUE</mat-option>
+          <mat-option value="RESUME_APPEL">RESUME_APPEL</mat-option>  
+          <mat-option value="MEETING">MEETING</mat-option>        
+          <mat-option value="CALL_SUMMARY">CALL_SUMMARY</mat-option>        
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Status</mat-label>
+        <mat-select formControlName="status" placeholder="Select status">
+           <mat-option value="DONE">DONE</mat-option>
+           <mat-option value="WAITING">WAITING</mat-option>
+            
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Categorie </mat-label>
+        <mat-select formControlName="classSalesTeam" placeholder="Select étape">
+            <mat-option value="Prospecting">Prospecting</mat-option>
+            <mat-option value="Negotiation">Negotiation</mat-option>
+            <mat-option value="Closing">Closing</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+      <!-- Assuming you have a list of repertoires to select from -->
+      
+      
+      
+      
+    </div>
+  </div>
+  <div mat-dialog-actions class="action">
+    <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+    <button mat-raised-button color="primary" type="submit">{{ data ? 'Update' : 'Save'  }}</button>
+  </div>
+</form>

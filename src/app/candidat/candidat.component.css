@@ -1,0 +1,33 @@
+.card1 {
+    width: 400px; /* Largeur de la carte */
+    margin: 0 auto; /* Centrer la carte */
+    margin-top: 50px; /* Marge supérieure */
+    border-radius: 10px; /* Bord arrondi */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgb(251, 251, 254);  /* Ombre légère */
+  }
+  
+  .card-body {
+    padding: 20px; /* Espacement interne */
+  }
+  
+  .card-title {
+    font-size: 1.5rem; /* Taille de la police du titre */
+    margin-bottom: 20px; /* Marge inférieure */
+  }
+  
+  .form-label {
+    font-weight: bold; 
+    /* Couleur de fond bleu marine */
+    border-color: navy;/* Police en gras pour les étiquettes */
+  }
+  
+  .form-control {
+    margin-bottom: 15px; /* Marge inférieure pour les champs de saisie */
+  }
+  
+  .btn-primary {
+    background-color: navy; /* Couleur de fond bleu marine */
+    border-color: navy; /* Couleur de la bordure bleu marine */
+    width: 50%; /* Largeur de 50% pour le bouton */
+}

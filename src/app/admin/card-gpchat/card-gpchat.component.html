@@ -1,0 +1,15 @@
+<div [ngClass]="'parent card' +determineCardClass()">
+    <div class="card ">
+        <div class="content-box">
+          <h1 class="card-title">COCONSULT Group Chat of {{ cardrole }} </h1>
+          <p class="card-content">{{ cardContent }}</p>
+        </div>
+        <span  class="see-more">See More</span>
+      </div>
+      <div class="ico-box">
+        <span class="ico">{{ cardTitle }}</span>
+      </div>
+      <button (click)= "delete(idGPCHAT)"  mat-raised-button type="submit" class="btn btn-danger mx-auto mt-3 text-white" style="width: 150px; text-decoration: aliceblue; font-size: 16px; background-color: red;">Delete</button>
+      <button  (click)="openUpdateDialog(GroupChat)"  mat-raised-button type="submit" class="btn btn-danger mx-auto mt-1 text-white" style="width: 150px; text-decoration: aliceblue; font-size: 16px; background-color: blue;">update</button>
+
+    </div>

@@ -1,0 +1,12 @@
+.verification-status {
+    display: inline-block;
+    width: 24px; /* Adjust the width as needed */
+    height: 24px; /* Adjust the height as needed */
+    margin-right: 8px; /* Adjust the margin as needed */
+  }
+  
+  .verification-status input[type="checkbox"] {
+    width: 24px;
+    height: 24px;
+  }
+  

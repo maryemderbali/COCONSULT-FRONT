@@ -1,0 +1,258 @@
+<nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom headroom--top headroom--pinned">
+  <div class="container">
+    <div class="logo">
+      <a  class="simple-text navbar-brand mr-lg-5 " [routerLink]="['/landing']">
+          <div class="logo-img">
+              <img  src="../../../assets/images/coconsult-logo.png" class="logo_img" >
+          </div>
+      </a>
+    </div>
+        
+    
+    <div class="navbar-collapse collapse"  [ngbCollapse]="isCollapsed"  *ngIf="!isconn ; else inconn">
+      
+      <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+        <li class="nav-item dropdown">
+          <a class="nav-link no-caret" data-toggle="dropdown" role="button">
+            <i class="fa fa-user-plus" aria-hidden="true"></i>
+            <span class="nav-link-inner--text text-black">S'inscrire </span>
+          </a>
+          <div class="dropdown-menu-xl dropdown-menu" >
+            <div class="dropdown-menu-inner">
+            
+              <a routerLinkActive="active" [routerLink]="['//register']" class="media d-flex align-items-center">
+                <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
+                  <i class="fa fa-briefcase" aria-hidden="true"></i>
+                </div>
+                <div class="media-body ml-3">
+                  <h6 class="heading text-primary mb-md-1">Employée</h6>
+                  <p class="description d-none d-md-inline-block mb-0">Epace Employée.</p>
+                </div>
+              </a>
+              <a routerLinkActive="active" [routerLink]="['/signupentrprise']" class="media d-flex align-items-center">
+                <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
+                  <i class="fa fa-building" aria-hidden="true"></i>
+                </div>
+                <div class="media-body ml-3">
+                  <h5 class="heading text-primary mb-md-1 text-white">Entreprise </h5>
+                  <p class="description d-none d-md-inline-block mb-0">Espace Entreprise . </p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item dropdown" >
+          <a class="nav-link no-caret" data-toggle="dropdown" role="button" routerLinkActive="active" [routerLink]="['/signin']">
+            <i class="fa fa-sign-in" aria-hidden="true"></i>
+            <span class="nav-link-inner--text text-black">Se Connecter </span>
+          </a>
+        </li>
+
+        <li class="nav-item dropdown">
+          
+          <a class="nav-link no-caret" data-toggle="dropdown" role="button">
+            <i class="ni ni-collection d-lg-none fa fa-person" ></i>
+            <span class="nav-link-inner--text text-black">Navigation</span>
+          </a>
+          <div class="dropdown-menu">
+            <!-- <a routerLinkActive="active" [routerLink]="['/admin/admindashboard']" class="dropdown-item">ADMIN </a> -->
+
+            <!-- <a routerLinkActive="active" [routerLink]="['/user_dashboardRH_w/monprofil']" class="dropdown-item">USER</a>
+
+            <a routerLinkActive="active" [routerLink]="['/landing']" class="dropdown-item">Landing</a> -->
+            <!-- <a routerLinkActive="active" [routerLink]="['/signin']" class="dropdown-item">Login</a> -->
+            <!-- <a routerLinkActive="active" [routerLink]="['/register']" class="dropdown-item">Register EMPLO</a>
+            <a routerLinkActive="active" [routerLink]="['/signupentrprise']" class="dropdown-item">Register ENTRP</a> -->
+            <!-- <a routerLinkActive="active" [routerLink]="['/verification']" class="dropdown-item">verfication</a> -->
+            <a routerLinkActive="active" [routerLink]="['#']" class="dropdown-item"> TEST </a>
+            <a routerLinkActive="active" [routerLink]="['#']" class="dropdown-item">TEST</a>
+
+
+          </div>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link no-caret" data-toggle="dropdown" role="button">
+            <i class="fa fa-question" aria-hidden="true"></i>
+            <span class="nav-link-inner--text text-black">About us</span>
+          </a>
+          <div class="dropdown-menu-xl dropdown-menu" >
+            <div class="dropdown-menu-inner">
+            
+              <a routerLinkActive="active" [routerLink]="['#']" class="media d-flex align-items-center">
+                <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
+                  <i class="fa fa-question-circle" aria-hidden="true"></i>
+                </div>
+                <div class="media-body ml-3">
+                  <h1 class="heading text-primary mb-md-1">Qui sommes-nous?</h1>
+                </div>
+              </a>
+              <a routerLinkActive="active" [routerLink]="['/contact']" class="media d-flex align-items-center">
+                <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
+                  <i class="fa fa-phone" aria-hidden="true"></i>
+
+                </div>
+                <div class="media-body ml-3">
+                  <h5 class="heading text-primary mb-md-1 text-white">Contactez-nous</h5>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+         <li class="nav-item">
+          <a class="nav-link nav-link-icon" href="https://www.facebook.com/" target="_blank" data-toggle="tooltip" title="Like us on Facebook">
+            <i class="fa fa-facebook-square"></i>
+            <span class="nav-link-inner--text d-lg-none">Facebook</span>
+          </a>
+        </li> 
+        <!--<li class="nav-item">
+          <a class="nav-link nav-link-icon" href="https://www.instagram.com/" target="_blank" data-toggle="tooltip" title="Follow us on Instagram">
+            <i class="fa fa-instagram"></i>
+            <span class="nav-link-inner--text d-lg-none">Instagram</span>
+          </a>
+        </li>-->
+        <li class="nav-item">
+          <a class="nav-link nav-link-icon" href="https://twitter.com/" target="_blank" data-toggle="tooltip" title="Follow us on Twitter">
+            <i class="fa fa-twitter-square"></i>
+            <span class="nav-link-inner--text d-lg-none">Twitter</span>
+          </a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link nav-link-icon" href="https://github.com/r" target="_blank" data-toggle="tooltip" title="Star us on Github">
+            <i class="fa fa-linkedin"></i>
+            <span class="nav-link-inner--text d-lg-none">linkedIN</span>
+          </a>
+        </li> -->
+       
+
+        <li class="nav-item d-none d-lg-block ml-lg-4">
+          <a routerLinkActive="active" [routerLink]="['/signin']"  class="btn btn-info btn-icon mb-3 mb-sm-0">
+            <span  class="btn-inner--text">Réservez un RdV maintenant </span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['/user_dashboardRH_w/pointage']">
+            <i class="fa fa-camera" aria-hidden="true"></i>
+            <span class="nav-link-inner--text">pointage</span>
+          </a>
+        </li>
+
+      </ul>
+       
+     <p></p> 
+  </div>
+<ng-template #inconn>
+    <div class="navbar-collapse collapse" id="navbar_global" [ngbCollapse]="isCollapsed" >
+      
+      <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+        <li class="nav-item dropdown">
+          <a class="nav-link no-caret" data-toggle="dropdown" role="button">
+            <i class="fa fa-plug" aria-hidden="true"></i>
+            <span class="nav-link-inner--text text-black" (click)="signout()">déconnecter </span>
+          </a>
+         
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link no-caret" data-toggle="dropdown" role="button">
+            <i class="fa fa-compass"></i>
+            <span class="nav-link-inner--text text-black">Navigation </span>
+          </a>
+          <div class="dropdown-menu">
+            <!-- <a routerLinkActive="active" [routerLink]="['/admin/admindashboard']" class="dropdown-item">ADMIN </a> -->
+
+            <a routerLinkActive="active" [routerLink]="['/user_dashboardRH_w/monprofil']" class="dropdown-item">Gérer compte</a>
+
+            <!-- <a routerLinkActive="active" [routerLink]="['/landing']" class="dropdown-item">Landing</a> -->
+            <!-- <a routerLinkActive="active" [routerLink]="['/signin']" class="dropdown-item">Login</a> -->
+            <!-- <a routerLinkActive="active" [routerLink]="['/register']" class="dropdown-item">Register EMPLO</a>
+            <a routerLinkActive="active" [routerLink]="['/signupentrprise']" class="dropdown-item">Register ENTRP</a> -->
+            <!-- <a routerLinkActive="active" [routerLink]="['/verification']" class="dropdown-item">verfication</a> -->
+            <a routerLinkActive="active" [routerLink]="['#']" class="dropdown-item"> test</a>
+            <a routerLinkActive="active" [routerLink]="['#']" class="dropdown-item">test</a>
+
+
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['/user_dashboardRH_w/pointage']">
+            <i class="fa fa-camera" aria-hidden="true"></i>
+            <span class="nav-link-inner--text">pointage</span>
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link no-caret" data-toggle="dropdown" role="button">
+            <i class="fa fa-question" aria-hidden="true"></i>
+            <span class="nav-link-inner--text text-black">About</span>
+          </a>
+          <div class="dropdown-menu-xl dropdown-menu" >
+            <div class="dropdown-menu-inner">
+            
+              <a routerLinkActive="active" [routerLink]="['/contact']"  class="media d-flex align-items-center">
+                <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
+                  <i class="fa fa-question-circle" aria-hidden="true"></i>
+                </div>
+                <div class="media-body ml-3">
+                  <h1 class="heading text-primary mb-md-1"> Qui sommes-nous?</h1>
+                </div>
+              </a>
+              <a routerLinkActive="active" [routerLink]="['/aboutus']" class="media d-flex align-items-center">
+                <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
+                  <i class="fa fa-phone" aria-hidden="true"></i>
+
+                </div>
+                <div class="media-body ml-3">
+                  <h5 class="heading text-primary mb-md-1 text-white">Contactez-nous</h5>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['/user_dashboardRH_w/demande-conge']">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+            <span class="nav-link-inner--text">Demande Conge</span>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+        <li class="nav-item">
+          <a class="nav-link nav-link-icon" href="https://www.facebook.com/" target="_blank" data-toggle="tooltip" title="Like us on Facebook">
+            <i class="fa fa-facebook-square"></i>
+            <span class="nav-link-inner--text d-lg-none">Facebook</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-link-icon" href="https://www.instagram.com/" target="_blank" data-toggle="tooltip" title="Follow us on Instagram">
+            <i class="fa fa-instagram"></i>
+            <span class="nav-link-inner--text d-lg-none">Instagram</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-link-icon" href="https://twitter.com/" target="_blank" data-toggle="tooltip" title="Follow us on Twitter">
+            <i class="fa fa-twitter-square"></i>
+            <span class="nav-link-inner--text d-lg-none">Twitter</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-link-icon" href="https://github.com/r" target="_blank" data-toggle="tooltip" title="Star us on Github">
+            <i class="fa fa-linkedin"></i>
+            <span class="nav-link-inner--text d-lg-none">linkedIN</span>
+          </a>
+        </li>
+       
+
+        <li class="nav-item d-none d-lg-block ml-lg-4">
+          <a routerLinkActive="active" [routerLink]="['/signin']"  class="btn btn-info btn-icon mb-3 mb-sm-0">
+            <span  class="btn-inner--text">Réservez un RDV maintenant </span>
+          </a>
+        </li>
+        
+      </ul>
+       
+      
+    </div>
+  </ng-template>
+  </div>
+</nav>

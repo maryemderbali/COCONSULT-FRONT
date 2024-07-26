@@ -1,0 +1,61 @@
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
+.chat-room {
+        max-width: 600px;
+        margin: 0 auto;
+        margin-top: 80px;
+        margin-bottom: 80px;
+    }
+    .chat-header {
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+    }
+    .chat-messages {
+        height: 400px;
+        overflow-y: scroll;
+        padding: 10px;
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+    }
+    .chat-input {
+        padding: 10px;
+    }
+    .user-icon {
+        height: 50px;
+        width: 50px;
+        background-color: #007bff;
+        color: white;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 50px;
+        font-size: 20px;
+        margin-right: 10px;
+    }
+
+.table100 {
+    width: 100%;
+}
+
+
+
+.table100-body td {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+}
+.custom-header {
+    background-color: #507091;
+    color: white;
+    font-family: Arial, serif;
+    font-size: 22px;
+}
+.table100-head th {
+    padding: 10px;
+    font-size: 18px;
+    background-color: #4a97e5; /* Couleur de fond de l'en-tête */
+    color: white;
+    position: sticky;
+    top: 0; /* En-tête collée en haut */
+    z-index: 2; /* Assurez-vous que l'en-tête reste au-dessus du contenu de la table */
+}

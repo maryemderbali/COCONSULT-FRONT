@@ -1,0 +1,48 @@
+/* Styles pour le conteneur principal du dialogue */
+.rules-dialog-container {
+    max-width: 500px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Styles pour le titre du dialogue */
+  .rules-dialog-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Styles pour le contenu du dialogue */
+  .rules-dialog-content {
+    margin-bottom: 20px;
+  }
+  
+  /* Styles pour les éléments de liste dans le contenu */
+  .rules-dialog-content li {
+    margin-bottom: 10px;
+    list-style-type: disc;
+  }
+  
+  /* Styles pour les actions du dialogue */
+  .rules-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  /* Styles pour le bouton de confirmation */
+  .rules-dialog-actions button {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Styles pour le survol du bouton de confirmation */
+  .rules-dialog-actions button:hover {
+    background-color: #b30021;
+  }
+  

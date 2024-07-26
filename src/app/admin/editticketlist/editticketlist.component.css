@@ -1,0 +1,76 @@
+/* Dans votre fichier addticketlist.component.css */
+
+.popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Opacité pour le fond */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .popup-content h1 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+  
+  .popup-content form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .popup-content .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .popup-content label {
+    font-weight: bold;
+  }
+  
+  .popup-content select,
+  .popup-content input[type="text"],
+  .popup-content textarea,
+  .popup-content input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .popup-content button {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .popup-content button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .popup-content button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  .popup-content button[type="button"] {
+    background-color: #6c757d;
+    color: #fff;
+  }
+  
+  .popup-content button[type="button"]:hover {
+    background-color: #5a6268;
+  }
+  

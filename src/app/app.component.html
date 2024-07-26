@@ -1,0 +1,4 @@
+<app-navbar #myNavbar *ngIf="!isDashboardRoute" ></app-navbar>
+<router-outlet></router-outlet>
+<app-landing *ngIf="!isDashboardRoute"></app-landing>
+<app-footer *ngIf="!iscalcul"></app-footer>

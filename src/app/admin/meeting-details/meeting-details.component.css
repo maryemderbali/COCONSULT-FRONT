@@ -1,0 +1,47 @@
+/* meeting-details.component.css */
+.modal-header {
+    border-bottom: none;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.close {
+    position: absolute;
+    right: 1rem;
+    top: 0.75rem;
+    color: #000;
+}
+
+.modal-body {
+    padding: 1rem;
+}
+
+.meeting-details {
+    display: flex;
+}
+
+.meeting-info {
+    flex: 1;
+    margin-right: 1rem;
+}
+
+.user-list {
+    flex: 1;
+}
+
+.user-list p {
+    margin-bottom: 0.5rem;
+}
+
+.user-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.user-list li {
+    margin-bottom: 0.25rem;
+}
+

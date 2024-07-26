@@ -1,0 +1,62 @@
+<div mat-dialog-title>
+  <h1>Contract Form</h1>
+</div>
+<form [formGroup]="contractForm" (ngSubmit)="onFormSubmit()">
+  <div mat-dialog-content class="content">
+      <div class="row">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Repertoire</mat-label>
+          <mat-select formControlName="repertoireId" placeholder="Select repertoire" *ngIf="repertoires && repertoires.length">
+            <mat-option *ngFor="let repertoire of repertoires" [value]="repertoire.idRepertoire">{{ repertoire.contact }}</mat-option>
+          </mat-select>
+          <div *ngIf="!repertoires || repertoires.length === 0">Loading repertoires...</div>
+        </mat-form-field>
+        <!--
+        <mat-form-field appearance="outline">
+          <mat-label>description</mat-label>
+          <input matInput formControlName="description" type="file" id="description" (change)="onFileSelected($event)">
+          <mat-hint>Select a PDF file to upload.</mat-hint> -->
+
+          <!-- Affichez un message d'erreur si le formulaire est invalide ou aucun fichier n'est sélectionné -->
+
+         <!-- <mat-error *ngIf="contractForm.get('description').invalid && contractForm.get('description').touched">
+              Un fichier PDF est requis.
+          </mat-error>
+        </mat-form-field> -->
+      
+
+          <label for="dateContract">Date of Contract</label>
+          <input type="date" id="dateContract" name="dateContract" placeholder="MM/DD/YYYY" formControlName="dateContract">
+
+          <mat-form-field appearance="outline">
+              <mat-label>Montant</mat-label>
+              <input matInput formControlName="montant" type="number" placeholder="Enter montant">
+          </mat-form-field>
+        
+          <mat-form-field appearance="outline">
+              <mat-label>Nombre de Tranche</mat-label>
+              <input matInput formControlName="nbreTranche" type="number" placeholder="Enter nbreTranche">
+          </mat-form-field>
+        
+          <mat-form-field appearance="outline">
+            <mat-label>Étape</mat-label>
+            <mat-select formControlName="etape" placeholder="Select étape">
+                <mat-option value="NOUVEAU">NOUVEAU</mat-option>
+                <mat-option value="DECOUVERTE">DECOUVERTE</mat-option>
+                <mat-option value="PROPOSITION">PROPOSITION</mat-option>
+                <mat-option value="NEGOCIATION">NEGOCIATION</mat-option>
+                <mat-option value="CONCLU">CONCLU</mat-option>
+                <mat-option value="PERDU">PERDU</mat-option>
+            </mat-select>
+        </mat-form-field>
+        
+        
+          
+        
+      </div>
+  </div>
+  <div mat-dialog-actions class="action">
+      <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button> 
+      <button mat-raised-button color="primary" type="submit">{{data ? 'Update': 'Save'}}</button> 
+  </div>
+</form>

@@ -1,0 +1,34 @@
+<app-navbardorra></app-navbardorra>
+
+<section class="section section-shaped section-lg">
+  <div class="shape shape-style-1 bg-gradient-default">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="container">
+    <p>ARE YOU READYYYY</p>
+    
+    <div class="row">
+      <!-- Vos cartes devraient être ici -->
+      <div class="card" *ngFor="let quiz of quizzes" style="text-decoration: aliceblue; background-color: rgb(196, 233, 48)">
+        <div class="image">
+          <img [src]="'assets/images/quiz.avif'" alt="Quiz Image">
+        </div>
+          
+        <div class="content">
+          <p>le sujet de ce quiz est {{ quiz.titre }}</p>
+          <p>ce quiz contient {{ quiz.numberOfQuestions }} questions</p>
+    
+          <button class="btn btn-primary" [disabled]="quizInProgress" (click)="viewQuestions(quiz.id_quiz)">View Questions</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

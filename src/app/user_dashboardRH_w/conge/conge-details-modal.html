@@ -1,0 +1,28 @@
+<div class="conge-details-container">
+  <h2>Conge Details</h2>
+  <div>
+    <div>
+      <label>User:</label>
+      <input type="text" [(ngModel)]="conge.user.username" disabled>
+    </div>
+    <div>
+      <label>Type:</label>
+      <input type="text" [(ngModel)]="conge.typeConge" >
+    </div>
+    <div>
+      <label>Start Date:</label>
+      <input type="date" [value]="conge.dateDebut | date: 'yyyy-MM-dd'" >
+    </div>
+    <div>
+      <label>End Date:</label>
+      <input type="date" [value]="conge.dateFin | date: 'yyyy-MM-dd'" >    </div>
+  </div>
+  <div>
+    <button mat-icon-button color="primary" (click)="editConge()">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-icon-button color="warn" (click)="deleteConge()">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+</div>

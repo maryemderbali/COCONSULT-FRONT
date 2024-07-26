@@ -1,0 +1,22 @@
+<div class="profile-container">
+    <header class="profile-header">
+        <h2>Profil User</h2>
+    </header>
+    <div *ngIf="userProfile; else loading">
+        <div class="profile-picture">
+            <img src="path/to/user-image.jpg" alt="Photo de profil">
+        </div>
+        <div class="profile-detail">
+            <p><strong>Nom :</strong> {{ userProfile.name }}
+                <span class="availability-dot" [ngClass]="{'green-dot': userProfile.availability, 'red-dot': !userProfile.availability}"></span>
+            </p>
+            <p><strong>Email :</strong> {{ userProfile.email }}</p>
+            <p><strong>Solde Congé :</strong> {{ userProfile.soldeConge }}</p>
+            <p><strong>Durée de Session :</strong> {{ convertToHours(userProfile.sessionDuration) }} heures</p>
+            <app-star-rating [rating]="averageRating"></app-star-rating>
+        </div>
+    </div>
+    <ng-template #loading>
+        <p>Chargement du profil...</p>
+    </ng-template>
+</div>

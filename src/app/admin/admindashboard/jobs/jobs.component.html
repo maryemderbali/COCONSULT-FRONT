@@ -1,0 +1,48 @@
+<button mat-raised-button color="primary" (click)="ouvrirPopupAjoutQuestion()"style="width: 150px; text-decoration: aliceblue; font-size: 16px; background-color:rgb(196, 233, 48);">Add Job</button>
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="cardo">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">Ajouter solution</h4>
+            <p class="card-category">Complete your solution</p>
+          </div>
+          <div class="card-body">
+            <table class="table">
+              <thead class="text-primary">
+                <tr>
+                  <th>Title</th>
+                  <th>Description</th>
+                  <th>Qualifications</th>
+                  <th>Location</th>
+                  <th>Deadline</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let job of jobs">
+                  <td>{{ job.titre }}</td>
+                  <td>{{ job.description }}</td>
+                  <td>{{ job.qualifications }}</td>
+                  <td>{{ job.lieu }}</td>
+                  <td>{{ job.dateLimite }}</td>
+                  <td>
+                    <!-- Bouton Update -->
+                    <button (click)="openUpdateDialog(job)" mat-raised-button class="btn btn-danger mx-auto text-white orange-btn" style="width: 100px;">
+                      <i class="fas fa-edit"></i> Update
+                    </button>
+                    <!-- Bouton Delete -->
+                    <button (click)="openDeleteConfirmation(job)" mat-raised-button class="btn btn-danger mx-auto mt-1 text-white orange-btn" style="width: 100px;">
+                      <i class="fas fa-trash-alt"></i> Delete
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

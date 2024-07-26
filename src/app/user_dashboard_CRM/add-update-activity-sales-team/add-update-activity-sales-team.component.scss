@@ -1,0 +1,44 @@
+.content {
+    padding-top: 10px; /* Réduisez l'espacement en haut */
+    padding-bottom: 10px; /* Réduisez l'espacement en bas */
+    padding-left: 50px; /* Réduisez l'espacement à gauche */
+    padding-right: 50px; /* Réduisez l'espacement à droite */
+  }
+  
+  .row {
+    display: flex;
+    gap: 10px;
+  
+    mat-form-field {
+      width: 100%;
+    }
+  }
+  
+  .mat-dialog-container {
+    margin: 20px; /* Réduisez les marges extérieures de la pop-up */
+  }
+  
+  .action {
+    padding: 0px 25px 20px;
+  
+    button {
+      flex: 1;
+    }
+  }
+  
+  .example-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .mat-checkbox {
+    margin-right: 10px; /* Réduisez la marge entre les cases à cocher */
+  }
+  
+  :host {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  

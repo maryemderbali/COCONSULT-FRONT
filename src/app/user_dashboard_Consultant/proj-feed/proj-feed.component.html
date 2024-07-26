@@ -1,0 +1,124 @@
+
+
+<div class="main-content" style="background-image: url('./assets/images/projectfeed.png');background-size:contain; background-position: left ">
+    <div class="container-fluid" >
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Button to trigger modal for Add Project Feed -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addProjFeedModal">Add Project Feed</button>
+            </div>
+        </div>
+        <!-- Project Feed List Section -->
+        <div class="row" >
+            <div class="col-md-12" >
+                <div class="cardo" >
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Project Feed List</h4>
+                    </div>
+                    <div class="card-body">
+                        <!-- Project Feed Table Here -->
+                        <div class="table-responsive">
+                            <table class="table table100">
+                                <!-- Table Headers -->
+                                <thead class="custom-header">
+                                <tr class="table100-head">
+                                    <th><i class="fas fa-id-card"></i> ID</th>
+                                    <th><i class="fas fa-project-diagram"></i> Content</th>
+                                    <th><i class="fas fa-clock"></i> Last Update Time</th>
+                                    <th><i class="fas fa-cogs"></i> Last Update Function</th>
+                                    <th><i class="fas fa-tasks"></i> Actions</th>
+                                </tr>
+                                </thead>
+                                <!-- Table Body -->
+                                <tbody>
+                                <!-- Project Feed Rows Here -->
+                                <tr *ngFor="let projFeed of pagedProjFeed">
+                                    <td>{{ projFeed.idPjtFeed }}</td>
+                                    <td>{{ projFeed.content }}</td>
+                                    <td>{{ projFeed.timeUpd | date:'dd/MM/yyyy'}}</td>
+                                    <td>{{ projFeed.fctsUpd | date:'dd/MM/yyyy'}}</td>
+                                    <td>
+                                        <!-- Edit Button -->
+                                        <button type="button" class="btn btn-info" (click)="openEditModal(projFeed)" data-toggle="modal" data-target="#editProjFeedModal">
+                                            <i class="fas fa-edit"></i> Edit
+                                        </button>
+
+                                        <button type="button" class="btn btn-danger" (click)="deleteProjFeed(projFeed.idPjtFeed)">
+                                            <i class="fas fa-trash-alt"></i> Delete
+                                        </button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <!-- Pagination -->
+                            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="pageSize" [length]="projFeeds.length" (page)="onPageChange($event)">
+                            </mat-paginator>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal for Add Project Feed -->
+        <div class="modal fade" id="addProjFeedModal" tabindex="-1" role="dialog" aria-labelledby="addProjFeedModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addProjFeedModalLabel">Add Project Feed</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Form to add project feed -->
+                        <form (ngSubmit)="saveProjFeed()">
+                            <div class="form-group">
+                                <label for="content">Content</label>
+                                <textarea class="form-control" id="content" name="content" [(ngModel)]="newProjFeed.content" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="timeUpd">Last Update Time</label>
+                                <input type="date" class="form-control" id="timeUpd" name="timeUpd" [(ngModel)]="newProjFeed.timeUpd">
+                            </div>
+                            <div class="form-group">
+                                <label for="fctsUpd">Last Update Function</label>
+                                <input type="date" class="form-control" id="fctsUpd" name="fctsUpd" [(ngModel)]="newProjFeed.fctsUpd">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save Project Feed</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal for Edit Project Feed -->
+        <div class="modal fade" id="editProjFeedModal" tabindex="-1" role="dialog" aria-labelledby="editProjFeedModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editProjFeedModalLabel">Edit Project Feed</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Form to edit project feed -->
+                        <form (ngSubmit)="updateProjFeed()">
+                            <div class="form-group">
+                                <label for="editContent">Content</label>
+                                <textarea class="form-control" id="editContent" name="editContent" [(ngModel)]="selectedProjFeed.content" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="editTimeUpd">Last Update Time</label>
+                                <input type="date" class="form-control" id="editTimeUpd" name="editTimeUpd" [(ngModel)]="selectedProjFeed.timeUpd">
+                            </div>
+                            <div class="form-group">
+                                <label for="editFctsUpd">Last Update Function</label>
+                                <input type="date" class="form-control" id="editFctsUpd" name="editFctsUpd" [(ngModel)]="selectedProjFeed.fctsUpd">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

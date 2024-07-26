@@ -1,0 +1,24 @@
+<div class="popup-container">
+    <div class="popup-content container">
+      <h1>Ajouter une réunion</h1>
+      <form (ngSubmit)="addMeeting()" [formGroup]="meetingForm">
+        <div class="form-group">
+          <label for="dateMeeting">Date de la réunion:</label>
+          <input type="datetime-local" formControlName="dateMeeting" class="form-control">
+        </div>
+  
+        <div class="form-group">
+          <label for="typeMeet">Type de réunion:</label>
+          <select formControlName="typeMeet" class="form-control">
+            <option *ngFor="let type of typesMeet" [value]="type">{{ type }}</option>
+          </select>
+        </div>
+  
+        <div class="form-group">
+          <button type="button" class="btn btn-secondary" (click)="onCancel()">Annuler</button>
+          <button type="submit" class="btn btn-primary">Ajouter</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

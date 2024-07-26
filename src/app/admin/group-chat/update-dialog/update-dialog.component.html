@@ -1,0 +1,44 @@
+<!-- FILEPATH: /c:/Users/louay/Desktop/testwebpack/coconsult-FRONT/src/app/admin/group-chat/update-dialog/update-dialog.component.html -->
+<!-- BEGIN: abpxx6d04wxr -->
+<!-- Dialog content -->
+<form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="groupTitle">Group Title</label>
+    <input type="text" class="form-control" id="groupTitle" placeholder="Group Title" formControlName="groupTitle">
+  </div>
+  <div class="form-group">
+    <label for="rules">Rules</label>
+    <input type="text" class="form-control" id="rules" placeholder="Rules" formControlName="rules">
+  </div>
+  <div class="form-group">
+    <label for="role">Role</label>
+    <select class="form-control" id="role" formControlName="role">
+      <option *ngFor="let role of roleOptions" [value]="role">{{ role }}</option>
+    </select>
+  </div>
+  
+  <!-- Buttons for actions -->
+  <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancel</button>
+  <button type="submit" class="btn btn-primary">Update</button>
+</form>
+<!-- END: abpxx6d04wxr -->
+
+  <div class="addusertitle">
+    <h3 class="text-primary"> <b> Add More Users To This GRP Chat</b></h3> 
+  <div class="row">
+   <form [formGroup]="addusersform" (ngSubmit)="sendaddusersform()">
+    <div class="row">
+      <div class="col-md-12">
+        <label class="ml-4 " for="selectedUsers">Users</label>
+        <mat-form-field class="example-full-width">
+          <mat-select multiple  formControlName="selectedUsers" >
+            <mat-option *ngFor="let user of usersByRole" [value]="user.id">{{ user.name }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <button mat-button  class=" ml-4 btn btn-primary" type="submit">Add this users?</button>
+
+  </form>
+  </div>
+</div>

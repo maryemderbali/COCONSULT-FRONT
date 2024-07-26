@@ -1,0 +1,34 @@
+.job-opportunities {
+    padding-top: 50px;
+  }
+  
+  .job-card {
+    margin-bottom: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .job-card:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .job-card .category {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .job-card .title {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  
+  .job-card .description {
+    margin-bottom: 10px;
+  }
+  
+  .job-card button {
+    width: 150px;
+  }
+  

@@ -1,0 +1,94 @@
+
+
+<div>
+   
+    <form (ngSubmit)="ajouterQuestionEtAffecterAuQuiz()">
+      <div>
+        <label for="ponderation">Pondération :</label>
+        <input type="number" id="ponderation" name="ponderation" [(ngModel)]="newQuestion.ponderation">
+      </div>
+      <div>
+        <label for="content">Contenu :</label>
+        <textarea id="content" name="content" [(ngModel)]="newQuestion.content"></textarea>
+      </div>
+      <div>
+        <label for="option1">Option 1 :</label>
+        <input type="text" id="option1" name="option1" [(ngModel)]="newQuestion.option1">
+      </div>
+      <div>
+        <label for="option2">Option 2 :</label>
+        <input type="text" id="option2" name="option2" [(ngModel)]="newQuestion.option2">
+      </div>
+      <div>
+        <label for="option3">Option 3 :</label>
+        <input type="text" id="option3" name="option3" [(ngModel)]="newQuestion.option3">
+      </div>
+      <div>
+        <label for="option4">Option 4 :</label>
+        <input type="text" id="option4" name="option4" [(ngModel)]="newQuestion.option4">
+      </div>
+      <div>
+        <label for="answer">Réponse :</label>
+        <input type="text" id="answer" name="answer" [(ngModel)]="newQuestion.answer">
+      </div>
+      <div>
+        <label for="quiz">Quiz :</label>
+        <select id="quiz" name="quiz" [(ngModel)]="selectedQuiz">
+          <option *ngFor="let quiz of quizzes" [ngValue]="quiz">{{ quiz.titre }}</option>
+        </select>
+      </div>
+      <button type="submit">Ajouter la question</button>
+    </form>
+
+
+
+
+    
+  </div>
+
+
+
+  <h2 mat-dialog-title>Ajouter Question</h2>
+<div mat-dialog-content>
+  <form #questionForm="ngForm" (ngSubmit)="ajouterQuestionEtAffecterAuQuiz()">
+    <div class="form-group">
+      <label for="content">content:</label>
+      <input type="text" class="form-control" id="content" name="content" [(ngModel)]="newQuestion.content" required>
+    </div>
+    <div class="form-group">
+      <label for="ponderation">ponderation:</label>
+      <textarea class="form-control" id="ponderation" name="ponderation" [(ngModel)]="newQuestion.ponderation" required></textarea>
+    </div>
+    <div class="form-group">
+        <label for="option1">option1:</label>
+        <textarea class="form-control" id="option1" name="option1" [(ngModel)]="newQuestion.option1" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="option2">option2:</label>
+        <textarea class="form-control" id="option2" name="option2" [(ngModel)]="newQuestion.option2" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="option3">option3:</label>
+        <textarea class="form-control" id="option3" name="option3" [(ngModel)]="newQuestion.option3" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="option4">option4:</label>
+        <textarea class="form-control" id="option4" name="option4" [(ngModel)]="newQuestion.option4" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="answer">answer:</label>
+        <textarea class="form-control" id="answer" name="answer" [(ngModel)]="newQuestion.answer" required></textarea>
+      </div>
+      <div class="form-group">
+      <label for="quiz">Quiz :</label>
+      <select id="quiz" name="quiz" [(ngModel)]="selectedQuiz">
+        <option *ngFor="let quiz of quizzes" [ngValue]="quiz">{{ quiz.titre }}</option>
+      </select>
+      </div>
+    <button type="submit" class="btn btn-primary">Update Quiz</button>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="closeDialog()">Cancel</button>
+</div>
+

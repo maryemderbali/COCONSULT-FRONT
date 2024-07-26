@@ -1,0 +1,22 @@
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
+.charts-container {
+    display: flex;
+}
+
+.chart {
+    width: 50%;
+    padding: 10px;
+}
+.card {
+    border: 2px solid #a17e7e;
+    border-radius: 10px;
+}
+
+.card-header {
+    background-color: #c5b575;
+}
+
+.card-body {
+    padding: 30px;
+}

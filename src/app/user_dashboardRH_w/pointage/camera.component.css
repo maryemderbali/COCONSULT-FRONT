@@ -1,0 +1,53 @@
+/* camera.component.css */
+.camera-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  background-color: #f4f4f8; /* Fond clair pour faire ressortir les éléments */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Ombre subtile pour un effet 3D */
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.camera-container:hover {
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Ombre plus intense pour l'interaction */
+}
+
+video {
+  width: 100%;
+  max-width: 500px; /* Ajustez selon la taille souhaitée */
+  border: 3px solid #007bff; /* Bordure bleue pour mettre en valeur la vidéo */
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Ombre pour donner du relief */
+}
+
+button {
+  padding: 12px 24px;
+  margin: 10px 5px;
+  background-color: #28a745; /* Vert pour une action positive, ex: démarrer */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px; /* Police plus grande pour une meilleure lisibilité */
+  transition: transform 0.2s ease-in-out, background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #218838; /* Vert plus foncé au survol */
+  transform: translateY(-3px); /* Léger déplacement vers le haut pour un effet de clic */
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2); /* Ombre pour l'effet enfoncé */
+}
+
+button:disabled {
+  background-color: #6c757d; /* Gris pour indiquer que le bouton est désactivé */
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+button:not(:disabled):active {
+  transform: translateY(1px); /* Effet enfoncé lors du clic */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}

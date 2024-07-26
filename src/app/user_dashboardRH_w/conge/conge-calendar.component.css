@@ -1,0 +1,88 @@
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
+/* Styles généraux */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8; /* Fond légèrement bleuté pour une ambiance apaisante */
+    color: #333;
+    line-height: 1.6;
+}
+
+h2 {
+    text-align: center;
+    color: #2c3e50; /* Bleu profond pour le titre */
+    padding: 10px 0;
+    animation: fadeInDown 1s ease-out forwards;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.btn-primary {
+    background-color: #e67e22; /* Orange éclatant pour un bouton principal */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.btn-primary:hover {
+    background-color: #d35400; /* Orange plus foncé au survol */
+}
+
+#calendar {
+    width: 80%;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #ecf0f1; /* Fond clair pour le calendrier */
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    transition: all 0.4s ease-in-out;
+}
+
+#calendar:hover {
+    box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+    transform: scale(1.02);
+}
+
+/* Styles spécifiques aux événements et jours du calendrier */
+.fc-day-grid-event {
+    background-color: #3498db; /* Bleu vibrant */
+    border-color: #2980b9; /* Bleu un peu plus foncé */
+    color: white;
+    border-radius: 4px;
+    transition: transform 0.3s ease-in-out;
+    animation: popIn 0.5s ease-out forwards;
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.5); }
+    100% { transform: scale(1); }
+}
+
+.fc-day-grid-event:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.fc-today {
+    background-color: #ffecb3; /* Fond jaune doux pour aujourd'hui */
+    font-weight: bold;
+}

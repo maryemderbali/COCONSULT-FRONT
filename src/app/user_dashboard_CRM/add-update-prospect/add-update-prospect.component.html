@@ -1,0 +1,43 @@
+<div mat-dialog-title>
+    <h1>Prospect Form</h1>
+</div>
+<form [formGroup]="prospectForm" (ngSubmit)="onFormSubmit()">
+    <div mat-dialog-content class="content">
+        <div class="row">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name" placeholder="Enter name">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Title</mat-label>
+                <input matInput formControlName="title" placeholder="Enter title">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" placeholder="Enter email">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Numtel</mat-label>
+                <input matInput formControlName="numTel" placeholder="Enter numtel">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Status</mat-label>
+                <mat-select formControlName="status" placeholder="Select status">
+                    <mat-option value="NEW_PROSPECT">New Prospect</mat-option>
+                    <mat-option value="CONTACTED">Contacted</mat-option>
+                    <mat-option value="QUALIFIED">Qualified</mat-option>
+                    <mat-option value="UNQUALIFIED">Unqualified</mat-option>
+                </mat-select>
+            </mat-form-field>
+            
+        </div>
+    </div>
+    <div mat-dialog-actions class="action">
+        <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button> 
+        <button mat-raised-button color="primary" type="submit">{{data ? 'Update': 'Save'}}</button> 
+    </div>
+</form>

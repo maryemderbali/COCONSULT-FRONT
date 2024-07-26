@@ -1,0 +1,38 @@
+<div class="card">
+    <h2>Reset Password</h2>
+    <form [formGroup]="forgetPassForm" (ngSubmit)="send()">
+
+        <div class="form-group">
+            <label for="oldPassword">Old Password</label>
+            <input type="password" class="form-control" id="oldPassword" formControlName="oldPassword">
+        </div>
+
+        <div class="form-group">
+            <label for="newPassword">New Password</label>
+            <input type="password" class="form-control" id="newPassword" formControlName="newPassword">
+            <div *ngIf="forgetPassForm.get('newPassword').errors">
+                <!-- Display validation error messages for newPassword -->
+              </div>
+        </div>
+
+        <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" class="form-control" id="confirmPassword" formControlName="confirmPassword">
+            <div *ngIf="forgetPassForm.get('confirmPassword').errors">
+                <!-- Display validation error messages for confirmPassword -->
+              </div>
+        </div>
+        <div *ngIf="forgetPassForm.errors?.passwordMismatch">
+            <p class="text-danger">Passwords do not match</p>
+          </div>
+
+        <div class="form-group">
+            <re-captcha id="recaptcha" name="recaptcha" [(ngModel)]="token" formControlName="recaptcha" required></re-captcha>
+            <div *ngIf="forgetPassForm.get('recaptcha').invalid && (forgetPassForm.get('recaptcha').dirty || forgetPassForm.get('recaptcha').touched)" class="invalid-feedback">
+                <div *ngIf="forgetPassForm.get('recaptcha').errors?.required">This field is required.</div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="!forgetPassForm.valid">Submit</button>
+    </form>
+</div>

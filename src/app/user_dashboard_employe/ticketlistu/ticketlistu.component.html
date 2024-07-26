@@ -1,0 +1,57 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="cardo">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">Liste des tickets</h4>
+            <p class="card-category">Tous les tickets</p>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <!-- Champ de recherche -->
+              <input type="text" [(ngModel)]="searchTerm" placeholder="Rechercher..." class="form-control mb-3">
+
+              <!-- Bouton "Ajouter" -->
+              <button (click)="openAddTicket('1000ms','500ms','')" mat-raised-button color="primary" class="mt-3">Ajouter</button>
+
+              <!-- Tableau de tickets -->
+              <table class="table">
+                <thead class="text-primary">
+                  <tr>
+                    <th>Ticket ID</th>
+                    <th>Priority</th>
+                    <th>Title</th>
+                    <th>Date Assigned</th>
+                    <th>Statut</th>
+                    <th>Assigned to</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let ticket of pagedTickets">
+                    <td>{{ ticket.idTicket }}</td>
+                    <td>{{ ticket.ticketPriority }}</td>
+                    <td>{{ ticket.tickettitle }}</td>
+                    <td>{{ ticket.dateAssigned }}</td>
+                    <td>{{ ticket.ticketStatus }}</td>
+                    <td>{{ getProjectTitle(ticket) }}</td>
+                    <td>
+                      <button (click)="editTicket(ticket.idTicket)" class="btn btn-primary">Éditer</button>
+                      <button (click)="deleteTicket(ticket.idTicket)" class="btn btn-danger delete-button">Supprimer</button>
+                      <button (click)="openTicketDetails(ticket)" class="btn btn-info">Voir Détails</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <!-- Ajout de la pagination -->
+              <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="pageSize" [length]="tickets.length" (page)="onPageChange($event)">
+              </mat-paginator>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

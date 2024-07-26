@@ -1,0 +1,81 @@
+
+<div class="main-content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="cardo">
+            <div class="card-header card-header-danger">
+              <h4 class="card-title">List of directories : </h4>
+              <p class="card-category">All directories : </p>
+              <button mat-raised-button  (click)="openAddUpdateRepertoireForm()">
+                ADD Repertoire
+            </button>
+            </div>
+
+            <div class="mat-elevation-z8 custom-table">
+                <mat-form-field>
+                    <mat-label>Filter</mat-label>
+                    <input matInput (keyup)="applyFilter($event)" placeholder="Search by Prospect" #input>
+                </mat-form-field>
+        <table mat-table [dataSource]="dataSource" class = "mat-elevation-z8">
+            
+           <!-- <ng-container matColumnDef="idRepertoire">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+                <td mat-cell *matCellDef="let row"> {{row.idRepertoire}} </td>
+            </ng-container>-->
+
+            <ng-container matColumnDef="contact">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Directory </th>
+                <td mat-cell *matCellDef="let row"> {{row.contact}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="numTel">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Phone </th>
+                <td mat-cell *matCellDef="let row"> {{row.numTel}} </td>
+            </ng-container>
+                       
+
+            <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> E-mail </th>
+                <td mat-cell *matCellDef="let row"> {{row.email}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="typeContact">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Type of Contact </th>
+                <td mat-cell *matCellDef="let row" [style.background-color]="getTypeContactColor(row.typeContact)"> {{ row.typeContact }} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="priorite">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Priority </th>
+                <td mat-cell *matCellDef="let row" [style.background-color]="getPriorityColor(row.priorite)"> {{ row.priorite }} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+                <td mat-cell *matCellDef="let row">
+                    <button mat-raised-button color="primary" (click)="openEditForm(row)" class="edit-button">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-raised-button color="warn" (click)="deleteRepertoire(row.idRepertoire)" class="delete-button">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="6">No data matching the filter "{{input.value}}"</td>
+            </tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+
+   
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+

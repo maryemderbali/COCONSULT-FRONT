@@ -1,0 +1,306 @@
+#headline-52-42 {
+  font-family: 'Maven Pro';
+  color: #083749;
+  font-weight: 700;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  letter-spacing: -2px;
+  font-size: 75px
+}
+
+@media (max-width: 991px) {
+  #headline-52-42 {
+      max-width:600px
+  }
+}
+
+@media (max-width: 767px) {
+  #headline-52-42 {
+      text-align:center
+  }
+}
+
+@media (max-width: 479px) {
+  #headline-52-42 {
+      font-size:42px;
+      text-align: center;
+      padding-bottom: 12px
+  }
+}
+
+
+#text_block-390-42 {
+  margin-bottom: 24px;
+  font-size: 20px;
+  line-height: 1.5;
+  max-width: 560px;
+    color:white;
+}
+
+@media (max-width: 479px) {
+  #text_block-390-42 {
+      text-align:center;
+      font-size: 18px;
+      color:white;
+      font-weight: 400;
+      margin-bottom: 18px
+  }
+}
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+.bg-success1 {
+    background-color:#08B797;
+  }
+  .bg-success2 {
+    background-color:#032868;
+  }
+  .bg-success3 {
+    background-color:#08B797;
+  }
+ .bd {
+    background-color:#08B797;
+  }
+  .bdd {
+    background-color:#032868;
+  }
+ .bg{
+  background-color: whitesmoke;
+ }
+ .bgo{background-color: #d4cfcf39;}
+
+
+ .disp{
+  font-size: large;
+  font-family: arial;
+ }
+ .col-lg-8 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%; /* Ensure the container takes the full height */
+}
+ .col-lg-8 h2 {
+  white-space: nowrap; /* Prevent the text from wrapping */
+  display: inline-block; /* Display the element as an inline-block */
+  margin: 0 ; /* Center the element horizontally within its container */
+}
+
+/* ==========================Font========================== */
+/*
+@font-face {
+  font-family: 'robotoregular';
+  src: url(../fonts/roboto-regular-webfont.woff) format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", "robotoregular", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(45deg, #ffaf00, #bb02ff);
+}
+
+.container {
+  position: relative;
+  width: 1150px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.container .cardo {
+  position: relative;
+  width: 300px;
+  height: 420px;
+  background-color: #fff;
+  margin: 20px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, .2);
+  transition: .5s ease-in-out;
+}
+
+.container:hover .cardo {
+  filter: blur(20px);
+  transform: scale(.9);
+  opacity: .5;
+}
+
+.container .cardo:hover {
+  filter: blur(0);
+  transform: scale(1);
+  opacity: 1;
+}
+
+.container .cardo:hover .circle {
+  clip-path: circle(600px);
+}
+
+.container .cardo:hover .content p {
+  color: #fff;
+}
+
+.container .cardo:hover .content a {
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, .2),
+              -1px -1px 2px rgba(255, 255, 255, .4);
+}
+
+.container .cardo .content a:active {
+  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, .1),
+              inset 5px 5px 5px rgba(0, 0, 0, .04),
+              inset -5px -5px 5px rgba(255, 255, 255, .07),
+              inset -1px -1px 2px rgba(255, 255, 255, .4);
+}
+
+.container .cardo .circle {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  clip-path: circle(180px at center 0);
+  text-align: center;
+  transition: 1s ease-in-out;
+}
+
+.container .cardo h2 {
+  color: #fff;
+  font-size: 4.5em;
+  padding: 30px 0;
+}
+
+.container .cardo .content {
+  position: absolute;
+  bottom: 10px;
+  padding: 20px;
+  text-align: center;
+}
+
+.container .cardo .content p {
+  color: #666;
+  transition: .5s ease-in-out;
+}
+
+.container .cardo .content a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  background: #000;
+  color: #fff;
+  border-radius: 40px;
+  text-decoration: none;
+  margin-top: 20px;
+  transition: .8s ease-in-out;
+}
+
+.container .cardo:nth-child(1) .circle,
+.container .cardo:nth-child(1) .content a {
+  background: rgb(8,183,151);
+}
+
+.container .cardo:nth-child(2) .circle,
+.container .cardo:nth-child(2) .content a {
+  background: rgb(3,40,104);
+}
+
+.container .cardo:nth-child(3) .circle,
+.container .cardo:nth-child(3) .content a {
+  background: rgb(184, 130, 23);
+}
+
+@keyframes colorChange {
+  0% {
+    color: #fff;
+  }
+
+  50% {
+    color: #b1b493;
+  }
+
+  80% {
+    color: #4f8a8b;
+  }
+
+  100% {
+    color: #fff;
+  }
+}
+
+/* =======================Responsive Breakpoint ========================== */
+
+@media only screen and (max-width: 992px) {
+  /* Add responsive styles for max-width 992px */
+}
+
+@media only screen and (max-width: 768px) {
+  /* Add responsive styles for max-width 768px */
+}
+
+ 
+  .cardo {
+     
+   
+   // box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+     transition: 0.3s;
+     display: flex;
+  }
+  
+  .cardo-body {
+    padding: 50; /* Remove default padding */
+  }
+  
+  .shadow-text {
+    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
+    font-family: Arial;
+  }
+  
+  
+  .ngb-carousel {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .ngb-slide {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .carousel-img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%; /* Make the image take the full height of the slide */
+  }
+  
+  .carousel-caption {
+    font-size: big ;
+    color: black;
+    background-color: rgba(225, 219, 219, 0.7);
+    //padding: 10px;
+    border-radius: 5px;
+   position: absolute;
+    //bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+  }
+  

@@ -1,0 +1,158 @@
+<div class="main-content" style="background-image: url('./assets/images/projectfeed.png'); background-size: contain; background-position: left;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Button to trigger modal for Add Quote -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addQuoteModal">Add Quote</button>
+            </div>
+        </div>
+        <!-- Quote List Section -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="cardo">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Quote List</h4>
+                    </div>
+                    <div class="card-body">
+                        <!-- Quote Table Here -->
+                        <div class="table-responsive">
+                            <table class="table table100">
+                                <!-- Table Headers -->
+                                <thead class="custom-header">
+                                <tr class="table100-head">
+                                    <th><i class="fas fa-id-card"></i> ID Quote</th>
+                                    <th><i class="fas fa-dollar"></i>Value</th>
+                                    <th><i class="fas fa-calendar-check-o"></i>Creation Date</th>
+                                    <th><i class="fas fa-calendar-times-o"></i>Expire Date</th>
+                                    <th><i class="fas fa-note-sticky"></i>Description</th>
+                                    <th>Status <i class="fas fa-note-sticky"></i></th>
+                                    <th>Actions<i class="fas fa-check"></i></th>
+                                </tr>
+                                </thead>
+                                <!-- Table Body -->
+                                <tbody>
+                                <!-- Quote Rows Here -->
+                                <tr *ngFor="let quote of pagedQuotes">
+                                    <td>{{ quote.idQuote }}</td>
+                                    <td>{{ quote.montant }}</td>
+                                    <td style="background-color: mediumspringgreen; color: black   ; font-weight: bold;">{{ quote.creationDate }}</td>
+                                    <td style="background-color: indianred; color: black    ; font-weight: bold;">{{ quote.expireDate }}</td>
+                                    <td>{{ quote.description }}</td>
+                                    <td>
+                                        <button class="btn" [ngClass]="quote.valid ? 'valid-button' : 'invalid-button'" (click)="toggleQuoteValidity(quote)">
+                                            {{ quote.valid ? 'Valider' : 'Invalider' }}
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <!-- Edit Button -->
+                                        <button type="button" class="btn btn-info" (click)="openEditModal(quote)" data-toggle="modal" data-target="#editQuoteModal">
+                                            Edit
+                                        </button>
+                                        <!-- Delete Button -->
+                                        <button type="button" class="btn btn-danger" (click)="deleteQuote(quote.idQuote)">
+                                            Delete
+                                        </button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <!-- Pagination -->
+                            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="pageSize" [length]="quotes.length" (page)="onPageChange($event)">
+                            </mat-paginator>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal for Add Quote -->
+        <div class="modal fade" id="addQuoteModal" tabindex="-1" role="dialog" aria-labelledby="addQuoteModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addQuoteModalLabel">Add Quote</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Form to add quote -->
+                        <form (ngSubmit)="saveQuote()">
+                            <div class="form-group">
+                                <label for="montant" class="blue-bold">Montant</label>
+                                <div class="input-group"> <!-- Added input-group for icon -->
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="bi bi-cash"></i></span> <!-- Added icon -->
+                                    </div>
+                                    <input type="text" class="form-control" id="montant" name="montant" placeholder="Montant" [(ngModel)]="newQuote.montant">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="creationDate" class="blue-bold">Creation Date</label>
+                                <div class="input-group"> <!-- Added input-group for icon -->
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="bi bi-calendar-plus"></i></span> <!-- Added icon -->
+                                    </div>
+                                    <input type="date" class="form-control" id="creationDate" name="creationDate" placeholder="Creation Date" [(ngModel)]="newQuote.creationDate">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="expireDate" class="blue-bold">Expire Date</label>
+                                <div class="input-group"> <!-- Added input-group for icon -->
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="bi bi-calendar-x"></i></span> <!-- Added icon -->
+                                    </div>
+                                    <input type="date" class="form-control" id="expireDate" name="expireDate" placeholder="Expire Date" [(ngModel)]="newQuote.expireDate">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="description" class="blue-bold">Description</label>
+                                <div class="input-group"> <!-- Added input-group for icon -->
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="bi bi-file-text"></i></span> <!-- Added icon -->
+                                    </div>
+                                    <textarea class="form-control" id="description" name="description" placeholder="Description" [(ngModel)]="newQuote.description" rows="3"></textarea>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save Quote</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal for Edit Quote -->
+        <div class="modal fade" id="editQuoteModal" tabindex="-1" role="dialog" aria-labelledby="editQuoteModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editQuoteModalLabel">Edit Quote</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Form to edit quote -->
+                        <form (ngSubmit)="updateQuote()">
+                            <div class="form-group">
+                                <label for="editMontant">Montant</label>
+                                <input type="text" class="form-control" id="editMontant" name="editMontant" [(ngModel)]="selectedQuote.montant">
+                            </div>
+                            <div class="form-group">
+                                <label for="editCreationDate">Creation Date</label>
+                                <input type="date" class="form-control" id="editCreationDate" name="editCreationDate" [(ngModel)]="selectedQuote.creationDate">
+                            </div>
+                            <div class="form-group">
+                                <label for="editExpireDate">Expire Date</label>
+                                <input type="date" class="form-control" id="editExpireDate" name="editExpireDate" [(ngModel)]="selectedQuote.expireDate">
+                            </div>
+                            <div class="form-group">
+                                <label for="editDescription">Description</label>
+                                <textarea class="form-control" id="editDescription" name="editDescription" [(ngModel)]="selectedQuote.description" rows="3"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

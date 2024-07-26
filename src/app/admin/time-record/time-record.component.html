@@ -1,0 +1,132 @@
+<div class="main-content" style="background-image: url('./assets/images/projectfeed.png');background-size:contain; background-position: left ">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Button to trigger modal for Add Time Record -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addTimeRecordModal">Add Time Record</button>
+            </div>
+        </div>
+        <!-- Time Record List Section -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="cardo">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Time Record List</h4>
+                    </div>
+                    <div class="card-body">
+                        <!-- Time Record Table Here -->
+                        <div class="table-responsive">
+                            <table class="table table100">
+                                <!-- Table Headers -->
+                                <thead class="custom-header">
+                                <tr class="table100-head">
+                                    <th><i class="fas fa-id-card"></i> ID</th>
+                                    <th><i class="fas fa-dollar"></i> Budget</th>
+                                    <th><i class="fas fa-calendar"></i> Date</th>
+                                    <th><i class="fas fa-clock"></i> Duration</th>
+                                    <th><i class="fas fa-sticky-note"></i> Description</th>
+                                    <th><i class="fas fa-tasks"></i> Actions</th>
+                                </tr>
+                                </thead>
+                                <!-- Table Body -->
+                                <tbody>
+                                <!-- Time Record Rows Here -->
+                                <tr *ngFor="let timeRecord of pagedTimeRecords">
+                                    <td>{{ timeRecord.idTimeRec }}</td>
+                                    <td>{{ timeRecord.budget }}</td>
+                                    <td>{{ timeRecord.date }}</td>
+                                    <td>{{ timeRecord.duration }}</td>
+                                    <td>{{ timeRecord.description }}</td>
+                                    <td>
+                                        <!-- Edit Button -->
+                                        <button type="button" class="btn btn-info" (click)="openEditModal(timeRecord)" data-toggle="modal" data-target="#editTimeRecordModal">
+                                            <i class="fas fa-edit"></i> Edit
+                                        </button>
+                                        <!-- Delete Button -->
+                                        <button type="button" class="btn btn-danger" (click)="deleteTimeRecord(timeRecord.idTimeRec)">
+                                            <i class="fas fa-trash-alt"></i> Delete
+                                        </button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <!-- Pagination -->
+                            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="pageSize" [length]="timeRecords.length" (page)="onPageChange($event)">
+                            </mat-paginator>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal for Add Time Record -->
+        <div class="modal fade" id="addTimeRecordModal" tabindex="-1" role="dialog" aria-labelledby="addTimeRecordModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addTimeRecordModalLabel">Add Time Record</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Form to add time record -->
+                        <form (ngSubmit)="saveTimeRecord()">
+                            <div class="form-group">
+                                <label for="budget">Budget</label>
+                                <input type="text" class="form-control" id="budget" name="budget" [(ngModel)]="newTimeRecord.budget">
+                            </div>
+                            <div class="form-group">
+                                <label for="date">Date</label>
+                                <input type="date" class="form-control" id="date" name="date" [(ngModel)]="newTimeRecord.date">
+                            </div>
+                            <div class="form-group">
+                                <label for="duration">Duration</label>
+                                <input type="date" class="form-control" id="duration" name="duration" [(ngModel)]="newTimeRecord.duration">
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea class="form-control" id="description" name="description" [(ngModel)]="newTimeRecord.description" rows="3"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save Time Record</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal for Edit Time Record -->
+        <div class="modal fade" id="editTimeRecordModal" tabindex="-1" role="dialog" aria-labelledby="editTimeRecordModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editTimeRecordModalLabel">Edit Time Record</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Form to edit time record -->
+                        <form (ngSubmit)="updateTimeRecord()">
+                            <div class="form-group">
+                                <label for="editBudget">Budget</label>
+                                <input type="text" class="form-control" id="editBudget" name="editBudget" [(ngModel)]="selectedTimeRecord.budget">
+                            </div>
+                            <div class="form-group">
+                                <label for="editDate">Date</label>
+                                <input type="date" class="form-control" id="editDate" name="editDate" [(ngModel)]="selectedTimeRecord.date">
+                            </div>
+                            <div class="form-group">
+                                <label for="editDuration">Duration</label>
+                                <input type="date" class="form-control" id="editDuration" name="editDuration" [(ngModel)]="selectedTimeRecord.duration">
+                            </div>
+                            <div class="form-group">
+                                <label for="editDescription">Description</label>
+                                <textarea class="form-control" id="editDescription" name="editDescription" [(ngModel)]="selectedTimeRecord.description" rows="3"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

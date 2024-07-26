@@ -1,0 +1,42 @@
+@import "~@fortawesome/fontawesome-free/css/all.css";
+.valid-button {
+    color: white;
+    background-color: green;
+    font-weight: bold;
+}
+
+.invalid-button {
+    color: white;
+    background-color: red;
+    font-weight: bold;
+    text-decoration: line-through;
+}
+.valid-cell {
+    background-color: #b9e6b9;
+}
+
+.invalid-cell {
+    background-color: #f0b3b3;
+}
+.table-responsive {
+    overflow: scroll;  /*Ajoute une barre de défilement lorsqu'il y a trop de contenu */
+    position: relative; /* Définit la position relative pour que les éléments positionnés à l'intérieur utilisent ce conteneur comme référence */
+}
+
+.table100 {
+    width: 100%;
+    table-layout: unset;
+    border-collapse: collapse;
+}
+
+.table100-head th {
+    padding: 10px;
+    font-size: 18px;
+    background-color: #4a97e5; /* Couleur de fond de l'en-tête */
+    color: white;
+    position: sticky;
+    top: 0; /* En-tête collée en haut */
+    z-index: 2; /* Assurez-vous que l'en-tête reste au-dessus du contenu de la table */
+}
+
+

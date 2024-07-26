@@ -1,0 +1,15 @@
+<h1>Modifier une activité</h1>
+<form (ngSubmit)="updateActivity()">
+  <div>
+    <label>Nombre de tâches:</label>
+    <input type="number" [(ngModel)]="activity.nbreOfTask" name="nbreOfTask" required>
+  </div>
+  <div>
+    <label>Type de tâche:</label>
+    <select [(ngModel)]="activity.taskType" name="taskType" required>
+      <option *ngFor="let type of taskTypes" [value]="type">{{type}}</option>
+    </select>
+  </div>
+  <button mat-button (click)="onCancel()">Annuler</button>
+  <button type="submit">Modifier</button>
+</form>

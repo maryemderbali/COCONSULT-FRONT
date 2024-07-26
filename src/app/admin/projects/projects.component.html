@@ -1,0 +1,192 @@
+<div class="main-content" style="background-image: url('https://th.bing.com/th/id/R.caafc6386858edeaef38e0cddb4df823?rik=UC7DHZO3ebFMNw&riu=http%3a%2f%2fwww.meseconomies.fr%2fwp-content%2fuploads%2f2017%2f08%2fNous-sommes-tous-chef-de-projet-mais-tout-le-monde-ne-sait-pas-gerer-un-projet.jpg&ehk=RJrwKqXgdKApUiSEaKDgW0Jd1b2Xox30Q0kkhbzut9Q%3d&risl=&pid=ImgRaw&r=0'); background-size: contain ; background-position: right  ">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Button to trigger modal for Add Project -->
+                <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#addProjectModal">
+                    Add Project
+                </button>
+            </div>
+        </div>
+        <!-- Project List Section -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="cardo" style="position: absolute">
+                    <div class="card-header card-header-danger" style ="position: relative; z-index: 1;">
+                        <h4 class="card-title">Project List</h4>
+                    </div>
+                    <div class="card-body">
+                        <!-- Project Table Here -->
+                        <div class="table-responsive" style="height: 600px; overflow-y: scroll;">
+                            <!-- <div class="table-responsive" >-->
+                            <table class="table100">
+                                <!-- Table Headers -->
+                                <thead class="text-primary">
+                                <tr class="table100-head">
+                                    <th><i class="fas fa-id-card" > </i>
+                                        ID</th>
+                                    <th><i class="fas fa-project-diagram"></i>
+                                        Project Title</th>
+                                    <th><i class="fas fa-money-bill-1-wave"></i>
+                                        Budget</th>
+                                    <th><i class="fas fa-mail-reply"></i>
+                                        Mail</th>
+                                    <th><i class ="fas fa-calendar-check-o"></i>
+                                        Start Date </th>
+                                    <th><i class ="fas fa-calendar-times-o"></i>
+                                        Finish Date </th>
+                                    <th><i class="fas fa-people-group"></i>
+                                        Staff </th>
+                                    <th><i class="fas fa-note-sticky"></i>
+                                        Description</th>
+                                    <th><i class="fa-solid fa-check"></i>
+                                        Validate </th>
+                                    <th> <i class="fa-solid fa-tasks-alt"></i>
+                                        Actions</th>
+                                </tr>
+                                </thead>
+                                <!-- Table Body -->
+                                <tbody>
+                                <!-- Project Rows Here -->
+                                <tr *ngFor="let project of pagedProjects">
+                                    <td (click)="showProjectDetails(project.idProjet)" style="cursor: pointer;">{{ project.idProjet }}</td>
+                                    <td  [ngClass]="project.isvalid ? 'valid-cell' : 'invalid-cell'" (click)="showProjectDetails(project.idProjet)" style="cursor: pointer;">{{ project.projetTitle }}</td>
+                                    <td (click)="showProjectDetails(project.idProjet)" style="cursor: pointer;">{{ project.budget }}</td>
+                                    <td (click)="showProjectDetails(project.idProjet)" style="cursor: pointer;">{{ project.mail }}</td>
+                                    <td style="background-color: mediumspringgreen; color: black; font-weight: bold; cursor: pointer;" (click)="showProjectDetails(project.idProjet)">{{ project.dateDebut }}
+                                    </td>
+                                    <td style="background-color: indianred; color: black; font-weight: bold; cursor: pointer;" (click)="showProjectDetails(project.idProjet)">{{ project.dateFin }}
+                                    </td>
+                                    <td (click)="showProjectDetails(project.idProjet)" style="cursor: pointer;">{{ project.effectif }}</td>
+                                    <td (click)="showProjectDetails(project.idProjet)" style="cursor: pointer;">{{ project.description }}</td>
+                                    <td [ngClass]="project.isvalid ? 'valid-cell' : 'invalid-cell'" >
+                                        <button class="btn" (click)="toggleProjectValidity(project)">
+                                            {{ project.isvalid ? 'Invalider' : 'Valider' }}
+                                        </button>
+
+                                    </td>
+                                    <td>
+                                        <!-- Edit Button -->
+                                        <button type="button" class="btn btn-info" (click)="openEditModal(project)" data-toggle="modal" data-target="#editProjectModal">
+                                            Edit
+                                        </button>
+
+                                        <!-- Delete Button -->
+                                        <button type="button" class="btn btn-danger" (click)="deleteProject(project.idProjet)">
+                                            Delete
+                                        </button>
+
+                                    </td>
+
+
+                                </tbody>
+                            </table>
+                            <!-- Pagination -->
+                            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="pageSize" [length]="projects.length" (page)="onPageChange($event)">
+                            </mat-paginator>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal for Add Project -->
+        <div class="modal fade" id="addProjectModal" tabindex="-1" role="dialog" aria-labelledby="addProjectModalLabel" aria-hidden="true">
+            <!-- Content of Add Project Modal -->
+            <form (ngSubmit)="saveProject()">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addProjectModalLabel">Add Project</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="projectTitle">Project Title</label>
+                                <input type="text" class="form-control" id="projectTitle" name="projectTitle" [(ngModel)]="newProject.projetTitle" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="budget">Budget</label>
+                                <input type="number" class="form-control" id="budget" name="budget" [(ngModel)]="newProject.budget" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="Mail">Mail</label>
+                                <input type="email" class="form-control" id="Mail" name="Mail" [(ngModel)]="newProject.mail" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="dateDebut">Start Date</label>
+                                <input type="date" class="form-control" id="dateDebut" name="dateDebut" [(ngModel)]="newProject.dateDebut" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="dateFin">End Date</label>
+                                <input type="date" class="form-control" id="dateFin" name="dateFin" [(ngModel)]="newProject.dateFin" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="effectif">Staff</label>
+                                <input type="number" class="form-control" id="effectif" name="effectif" [(ngModel)]="newProject.effectif" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea class="form-control" id="description" name="description" [(ngModel)]="newProject.description" rows="3" required></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Save Project</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Modal for Edit Project -->
+        <div class="modal fade" id="editProjectModal" tabindex="-1" role="dialog" aria-labelledby="editProjectModalLabel" aria-hidden="true">
+            <!-- Content of Edit Project Modal -->
+            <form (ngSubmit)="updateProject()">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="editProjectModalLabel">Edit Project</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="editProjectTitle">Project Title</label>
+                                <input type="text" class="form-control" id="editProjectTitle" name="editProjectTitle" [(ngModel)]="selectedProject.projetTitle" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="editBudget">Budget</label>
+                                <input type="number" class="form-control" id="editBudget" name="editBudget" [(ngModel)]="selectedProject.budget" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="editMail">Mail</label>
+                                <input type="email" class="form-control" id="editMail" name="editMail" [(ngModel)]="selectedProject.mail" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="editDateDebut">Start Date</label>
+                                <input type="date" class="form-control" id="editDateDebut" name="editDateDebut" [(ngModel)]="selectedProject.dateDebut" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="editDateFin">End Date</label>
+                                <input type="date" class="form-control" id="editDateFin" name="editDateFin" [(ngModel)]="selectedProject.dateFin" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="editEffectif">Staff</label>
+                                <input type="number" class="form-control" id="editEffectif" name="editEffectif" [(ngModel)]="selectedProject.effectif" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="editDescription">Description</label>
+                                <textarea class="form-control" id="editDescription" name="editDescription" [(ngModel)]="selectedProject.description" rows="3" required></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

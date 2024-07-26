@@ -1,0 +1,198 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="cardo">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Liste Des Notification</h4>
+                        <p class="card-category"> Envoyez De puis le Forum contact us </p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+  
+                                    
+                                    <th>
+                                        name
+                                    </th>
+                                    
+                                    <th>
+                                        Email
+                                    </th>
+                                    <th>
+                                       Phone Number
+                                    </th>
+                                    <th>
+                                         Message
+                                     </th>
+                                    <th>
+                                      date 
+                                    </th>
+                                    
+                                    <th>
+                                      Sent as Notif ?
+                                    </th>
+                                    
+                                </thead>
+                               
+                                <tbody *ngFor="let msg of message">
+                                  <!-- *ngIf="user.roles.name=='ROLE_Employee'"  -->
+                                    <tr >
+                                        
+                                        <td>
+                                          {{msg.nom}}
+                                      </td>
+                                        <td>
+                                          {{msg.email}}
+                                      </td>
+                                        <td>
+                                          {{msg.tel}}
+                                      </td>
+                                      <td>
+                                          {{msg.message}}
+                                      </td>
+                                     <td>
+                                        {{ formatDate(msg.date) }}
+
+                                     </td>    
+                                      
+                                        
+                                      <td>
+                                          {{msg.notificationSent}}
+                                      </td>
+                                        <td>
+                                          <button *ngIf="!msg.notificationSent"(click)="sendNotification(msg)" type="button" class="btn btn-danger" >Send Now!</button>
+                                          <button *ngIf="msg.notificationSent" type="button" class="btn btn-primary">already sent</button>
+                                        </td>
+                                     
+                                    </tr>
+                               
+                                </tbody>
+                             
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+  </div>
+  
+<!--<div class="main-content">
+
+    <div class="container-fluid">
+        <div class="cardo">
+            <div class="card-header card-header-danger">
+                <h3 class="card-title">Notifications</h3>
+                <p class="card-category">tout le message 
+                    <a target="_blank" href="https://github.com/mouse0270">Envoyé </a>. par utilisateur
+                    <a href="http://bootstrap-notify.remabledesigns.com/" target="_blank">employé et entreprise.</a>
+                </p>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4 class="card-title">Notifications Message</h4>
+                     <div *ngFor="let messages of message"> 
+                        <div *ngFor="let messages of message" class="alert alert-info alert-with-icon" data-notify="container" >
+                          <i class="material-icons" data-notify="icon">add_alert</i>
+                          <button mat-button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                              <i class="material-icons">close</i>
+                          </button>
+
+                          <span ></span>
+
+
+                          <span data-notify="message">{{messages.email}} a envoyé email==> {{messages.msg}}</span>
+
+                  </div>
+                    </div>
+                   <div class="col-md-6">
+                        <h4 class="card-title">Notification states</h4>
+                        <div class="alert alert-info">
+                            <button mat-button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <i class="material-icons">close</i>
+                            </button>
+                            <span>
+                                <b> Info - </b> This is a regular notification made with ".alert-info"</span>
+                        </div>
+                        <div class="alert alert-success">
+                            <button mat-button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <i class="material-icons">close</i>
+                            </button>
+                            <span>
+                                <b> Success - </b> This is a regular notification made with ".alert-success"</span>
+                        </div>
+                        <div class="alert alert-warning">
+                            <button mat-button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <i class="material-icons">close</i>
+                            </button>
+                            <span>
+                                <b> Warning - </b> This is a regular notification made with ".alert-warning"</span>
+                        </div>
+                        <div class="alert alert-danger">
+                            <button mat-button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <i class="material-icons">close</i>
+                            </button>
+                            <span>
+                                <b> Danger - </b> This is a regular notification made with ".alert-danger"</span>
+                        </div>
+                        <div class="alert alert-primary">
+                            <button mat-button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <i class="material-icons">close</i>
+                            </button>
+                            <span>
+                                <b> Primary - </b> This is a regular notification made with ".alert-primary"</span>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="places-buttons">
+                    <div class="row">
+                        <div class="col-md-6 ml-auto mr-auto text-center">
+                            <h4 class="card-title">
+                                Notifications Places
+                                <p class="category">Click to view notifications</p>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8 col-md-10 ml-auto mr-auto">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <button mat-raised-button class="btno btn-danger btn-block" (click)="showNotification('top','left')">Top Left</button>
+                                </div>
+                                <div class="col-md-4">
+                                    <button mat-raised-button class="btno btn-danger btn-block" (click)="showNotification('top','center')">Top Center</button>
+                                </div>
+                                <div class="col-md-4">
+                                    <button mat-raised-button class="btno btn-danger btn-block" (click)="showNotification('top','right')">Top Right</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8 col-md-10 ml-auto mr-auto">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <button mat-raised-button class="btno btn-danger btn-block" (click)="showNotification('bottom','left')">Bottom Left</button>
+                                </div>
+                                <div class="col-md-4">
+                                    <button mat-raised-button class="btno btn-danger btn-block" (click)="showNotification('bottom','center')">Bottom Center</button>
+                                </div>
+                                <div class="col-md-4">
+                                    <button mat-raised-button class="btno btn-danger btn-block" (click)="showNotification('bottom','right')">Bottom Right</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>-->
+

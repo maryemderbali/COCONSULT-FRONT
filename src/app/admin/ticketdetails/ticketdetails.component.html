@@ -1,0 +1,15 @@
+<div class="ticket-details">
+    <button type="button" class="btn-close" aria-label="Close" (click)="closeDialog()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h2>Détails du Ticket</h2>
+    <p>ID du Ticket: {{ ticket.idTicket }}</p>
+    <p>Title: {{ ticket.tickettitle }}</p>
+    <p>Priorité: {{ ticket.ticketPriority }}</p>
+    <p>Date Assignée: {{ ticket.dateAssigned }}</p>
+    <p>Statut: {{ ticket.ticketStatus }}</p>
+    <p>Contenu: {{ ticket.ticketContent }}</p>
+
+    <!-- Ajoutez d'autres détails de ticket si nécessaire -->
+  </div>
+  

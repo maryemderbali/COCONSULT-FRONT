@@ -1,0 +1,19 @@
+<div class="project-details" *ngIf="projectDetails">
+    <div class="project-detail">
+        <div class="project-header">
+            <h3>Project Title: {{ projectDetails.projetTitle }}</h3>
+            <button (click)="toggleProjectValidity(!projectDetails.valid)" class="toggle-validity-btn" [ngClass]="{'valid-btn': projectDetails.valid, 'invalid-btn': !projectDetails.valid}">
+                {{ projectDetails.valid ? 'Invalidate Project' : 'Validate Project' }}
+            </button>
+        </div>
+        <div class="project-info">
+            <p><strong>ID:</strong> {{ projectDetails.idProjet }}</p>
+            <p><strong>Budget:</strong> {{ projectDetails.budget }}</p>
+            <p><strong>Mail:</strong> {{ projectDetails.mail }}</p>
+            <p><strong>Start Date:</strong> {{ projectDetails.dateDebut | date:'dd/MM/yyyy' }}</p>
+            <p><strong>End Date:</strong> {{ projectDetails.dateFin | date:'dd/MM/yyyy' }}</p>
+            <p><strong>Staff:</strong> {{ projectDetails.effectif }}</p>
+            <p><strong>Description:</strong> {{ projectDetails.description }}</p>
+        </div>
+    </div>
+</div>

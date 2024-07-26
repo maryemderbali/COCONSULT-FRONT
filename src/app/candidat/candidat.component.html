@@ -1,0 +1,91 @@
+
+
+<app-navbar></app-navbar>
+<section class="section section-shaped section-lg">
+  <div class="shape shape-style-1 bg-gradient-default">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+<div>
+  <section class="bg">
+    <div class="container ">
+      <div class="row row-grid align-items-left">
+        <div class="col-md-6">
+          <div class="card bgo shadow border-0 p-2 g-col-6">
+            <div >
+              <ngb-carousel >
+                <ng-template ngbSlide>
+                  <div class="picsum-img-wrapper">
+                    <img src="./assets/images/offre1.jpg" alt="Random first slide" class="carousel-img" />
+                  </div>
+                  <div class="carousel-caption">
+                    <p>votre opportunité pour s'améliorer</p>
+                  </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                  <div class="picsum-img-wrapper">
+                    <img src="./assets/images/offre2.jpg" alt="Random second slide" class="carousel-img" />
+                  </div>
+                  <div class="carousel-caption">
+                    <p>Qu-attendez vous pour reagir comme étand un entreprise innovante de ce domaine.</p>
+                  </div>
+                </ng-template>
+                <ng-template ngbSlide>
+                  <div class="picsum-img-wrapper">
+                    <img src="./assets/images/offre3.jpg" alt="Random third slide" class="carousel-img"  />
+                  </div>
+                  <div class="carousel-caption">
+                    <p>Agir maintenant pour un avenir euphorique .</p>
+                  </div>
+                </ng-template>
+                
+              </ngb-carousel>
+          </div>
+          </div>
+        </div>
+        <!-- candidat.component.html -->
+
+        <div class="card1">
+          <div class="card-body">
+            <h2 class="card-title">Ajouter un Candidat</h2>
+            <form (submit)="onSubmit()">
+              <div class="mb-3">
+                <label for="nom" class="form-label">Nom :</label>
+                <input type="nom" id="email" name="nom" [(ngModel)]="nom" class="form-control" required>
+              </div>
+              <div class="mb-3">
+                <label for="prenom" class="form-label">prenom :</label>
+                <input type="prenom" id="prenom" name="prenom" [(ngModel)]="prenom" class="form-control" required>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email :</label>
+                <input type="email" id="email" name="email" [(ngModel)]="email" class="form-control" required>
+              </div>
+              
+              <div class="mb-3">
+                <label for="pdfFile" class="form-label">Fichier PDF :</label>
+                <input type="file" id="pdfFile" name="pdfFile" (change)="onFileSelected($event)" class="form-control" accept=".pdf" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Ajouter Candidat</button>
+            </form>
+          </div>
+        </div>
+        
+</div>
+
+          
+</div>

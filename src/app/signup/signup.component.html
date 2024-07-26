@@ -1,0 +1,155 @@
+<main>
+  <section class="section section-shaped section-lg">
+    <div class="shape shape-style-1 bg-gradient-default">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="container pt-lg-md">
+      <div class="row justify-content-center">
+        <div class="col-lg-5">
+          <div class="card bg-secondary shadow border-0">
+            <div class="card-header bg-white pb-5">
+              <div class="text-muted text-center mb-3">
+                <small>Sign up with</small>
+              </div>
+              <div class="text-center">
+                <a href="javascript:void(0)" class="btn btn-neutral btn-icon mr-4">
+                  <span class="btn-inner--icon">
+                    <img src="./assets/img/icons/common/github.svg">
+                  </span>
+                  <span class="btn-inner--text">Github</span>
+                </a>
+                <a href="javascript:void(0)" class="btn btn-neutral btn-icon">
+                  <span class="btn-inner--icon">
+                    <img src="./assets/img/icons/common/google.svg">
+                  </span>
+                  <span class="btn-inner--text">Google</span>
+                </a>
+              </div>
+            </div>
+            <div class="card-body px-lg-5 py-lg-5">
+              <div class="text-center text-muted mb-4">
+                <small>Or sign up with credentials</small>
+              </div>
+              <form role="form" #signupForm="ngForm" (ngSubmit)="onSubmit(signupForm)" >
+                <div class="form-group" [ngClass]="{'focused':focus===true}">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fa fa-user-o" aria-hidden="true"></i>
+                      </span>
+                    </div>
+                    <input class="form-control" placeholder="name" type="text" [(ngModel)]="user.name" name="name" (focus)="focus=true" (blur)="focus=false">
+                  </div>
+                  <div *ngIf="signupForm.controls['name'].touched && signupForm.controls['name'].invalid">
+                    <p *ngIf="signupForm.controls['name'].errors?.required" class="text-red">name est requis.</p>
+                    <p *ngIf="signupForm.controls['name'].errors?.name" class="text-red">name n'est pas valide.</p>
+                  </div>
+                </div>
+                <div class="form-group" [ngClass]="{'focused':focus===true}">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fa fa-user-o" aria-hidden="true"></i>
+                      </span>
+                    </div>
+                    <input class="form-control" placeholder="username" type="text" [(ngModel)]="user.username" name="username" (focus)="focus=true" (blur)="focus=false">
+                  </div>
+                  <div *ngIf="signupForm.controls['username'].touched && signupForm.controls['username'].invalid">
+                    <p *ngIf="signupForm.controls['username'].errors?.required" class="text-red">username est requis.</p>
+                    <p *ngIf="signupForm.controls['username'].errors?.username" class="text-red">username n'est pas valide.</p>
+                  </div>
+                </div>
+                <div class="form-group" [ngClass]="{'focused':focus===true}">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fa fa-building-o" aria-hidden="true"></i>
+                      </span>
+                    </div>
+                    <input class="form-control" placeholder="localisation" type="text" [(ngModel)]="user.address" name="adress" (focus)="focus=true" (blur)="focus=false">
+                  </div>
+                  <div *ngIf="signupForm.controls['adress'].touched && signupForm.controls['adress'].invalid">
+                    <p *ngIf="signupForm.controls['adress'].errors?.required" class="text-red">l'adresse est requis.</p>
+                  </div>
+                </div>
+                <div class="form-group"[ngClass]="{'focused':focus===true}">
+                  <!-- [ngClass]="{'focused':focus===true}" -->
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fa fa-phone" aria-hidden="true"></i>
+                      </span>
+                    </div>
+                    <input class="form-control" placeholder="telephone +216..." type="number" [(ngModel)]="user.number" (focus)="focus=true" (blur)="focus=false">
+                  </div>
+                </div>
+                <div class="form-group" [ngClass]="{'focused':focus1===true}">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fa fa-envelope-o" aria-hidden="true"></i>
+                      </span>
+                    </div>
+                    <input class="form-control" placeholder="Email" type="email" [(ngModel)]="user.email" name="email" (focus)="focus1=true" (blur)="focus1=false">
+                  </div>
+                  <div *ngIf="signupForm.controls['email'].touched && signupForm.controls['email'].invalid">
+                    <p *ngIf="signupForm.controls['email'].errors?.required" class="text-red">L'email est requis.</p>
+                    <p *ngIf="signupForm.controls['email'].errors?.email" class="text-red">L'email n'est pas valide.</p>
+                  </div>
+                </div>
+                
+                <div class="input-group input-group-alternative">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                    </span>
+                  </div>
+                  <input class="form-control" placeholder="Password" type="password" name="password" [(ngModel)]="user.password"
+                    required pattern="^(?=.*[a-zA-Z])(?=.*\d).+$" (focus)="focus1 = true" (blur)="focus1 = false">
+                </div>
+                <div *ngIf="signupForm.controls['password'].touched && signupForm.controls['password'].invalid">
+                  <p *ngIf="signupForm.controls['password'].errors?.required" class="text-red " >Le mot de passe est requis.</p>
+                  <p *ngIf="signupForm.controls['password'].errors?.pattern" class="text-red ">Le mot de passe doit contenir des lettres et des chiffres.</p>
+                </div>
+                <div class="form-group" [ngClass]="{'focused':focus===true}">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fa fa-list" aria-hidden="true"></i>
+                      </span>
+                    </div>
+                    <select class="form-control" placeholder="choisir votre role" [(ngModel)]="user.Role" name="role">
+
+                      <option value="Employee">Employee</option>
+                      <option value="Manager">Manager</option>
+                      <option value="HR">HR</option>
+                      <option value="CRM">CRM</option>
+                      <option value="Consult">Consult</option>
+                      <option value="PM">PM</option>
+                    </select>
+                  </div>
+                </div>
+              
+                <div class="row my-4">
+                  <div class="col-12">
+                    <div class="custom-control custom-control-alternative custom-checkbox">
+                      <input class="custom-control-input" id="customCheckRegister" type="checkbox" [(ngModel)]="agreePrivacy" required >
+                      <label class="custom-control-label" for="customCheckRegister">
+                        <span>I agree with the
+                          <a href="javascript:void(0)">Privacy Policy</a>
+                        </span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary mt-4">Create account</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

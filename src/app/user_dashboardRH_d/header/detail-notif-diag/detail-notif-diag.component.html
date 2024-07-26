@@ -1,0 +1,12 @@
+<div class="modal-dialog" style="font-family: Arial, sans-serif;">
+    <div class="modal-header bg-primary text-white rounded-top">
+        <h5 class="modal-title"><b>Titre:</b> {{ notification.title }}</h5>
+    </div>
+    <div class="modal-body">
+        <p style="font-size: 16px;"><b>Messages:</b> {{ notification.message }}</p>
+        <p style="font-size: 14px;"><b>Date:</b> {{ notification.date }}</p>
+        <p style="font-size: 14px;"><b>Mail de cette réclamation:</b> {{ notification.adminMsgId.email }}</p>
+        <p style="font-size: 14px;"><b>L'envoyeur de cette réclamation:</b> {{ notification.adminMsgId.message }}</p>
+        <p style="font-size: 14px;"><b>Objet de cette réclamation:</b> {{ notification.adminMsgId.message }}</p>
+    </div>
+</div>

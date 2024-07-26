@@ -1,0 +1,41 @@
+<mat-vertical-stepper #stepper>
+    <mat-step [stepControl]="teamForm">
+      <ng-template matStepLabel>Informations générales</ng-template>
+      <form [formGroup]="teamForm">
+        <div class="form-group">
+          <label for="capacity">Capacité de l'équipe:</label>
+          <input type="number" formControlName="capacity" class="form-control" placeholder="Tapez la Capacité de l'équipe...">
+        </div>
+        <div class="form-group">
+          <label for="teamLeader">Chef d'équipe:</label>
+          <input type="text" formControlName="teamLeader" class="form-control" placeholder="Tapez le Chef d'équipe....">
+        </div>
+        <div class="form-group">
+          <label for="teamName">Nom de l'équipe:</label>
+          <input type="text" formControlName="teamName" class="form-control" placeholder="Tapez Nom de l'équipe...">
+        </div>
+        <button mat-button matStepperNext>Next</button>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Confirmation</ng-template>
+      <p>Veuillez vérifier les informations avant d'ajouter l'équipe.</p>
+      <div class="form-group">
+        <label>Capacité de l'équipe:</label>
+        <p>{{ teamForm.value.capacity }}</p>
+      </div>
+      <div class="form-group">
+        <label>Chef d'équipe:</label>
+        <p>{{ teamForm.value.teamLeader }}</p>
+      </div>
+      <div class="form-group">
+        <label>Nom de l'équipe:</label>
+        <p>{{ teamForm.value.teamName }}</p>
+      </div>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="addTeam()">Ajouter</button>
+      </div>
+    </mat-step>
+  </mat-vertical-stepper>
+  

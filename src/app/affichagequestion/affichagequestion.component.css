@@ -1,0 +1,183 @@
+.microphone-icon {
+  cursor: pointer; /* Changement de curseur au survol */
+  fill: #2a08d2; /* Couleur de l'icône (remplacer par votre couleur préférée) */
+  width: 30px; /* Largeur de l'icône */
+  height: 30px; /* Hauteur de l'icône */
+}
+
+
+/* Styles for the mat-stepper container */
+.container {
+  max-width: 600px; /* Largeur maximale de la mat-stepper */
+  margin: 0 auto; /* Centrage horizontal de la mat-stepper */
+}
+
+/* Styles for the mat-step content */
+.mat-step-content {
+  padding: 20px; /* Espacement interne du contenu de chaque étape */
+}
+
+/* Styles for the question title */
+h3 {
+  color: #007bff; /* Couleur de la question */
+}
+
+/* Styles for the answer options */
+ul li label {
+  display: block; /* Afficher les options sur une ligne différente */
+  margin-bottom: 8px; /* Marge en bas de chaque option */
+  color: #28a745; /* Couleur des réponses */
+}
+
+/* Styles for the Next and Back buttons */
+.mat-stepper-horizontal .mat-horizontal-stepper-header-container .mat-step-header:not(:last-child) .mat-step-icon,
+.mat-stepper-horizontal .mat-horizontal-stepper-header-container .mat-step-header:not(:first-child) .mat-step-icon {
+  background-color: #007bff; /* Couleur de fond des icônes Next et Back */
+}
+
+/* Styles for the Submit Answer button */
+.mat-stepper-horizontal .mat-horizontal-stepper-header-container .mat-step-header:not(:last-child) .mat-step-icon,
+.mat-stepper-horizontal .mat-horizontal-stepper-header-container .mat-step-header:not(:first-child) .mat-step-icon {
+  background-color: #28a745; /* Couleur de fond du bouton Submit Answer */
+}
+
+/* Styles for the End of the quiz button */
+.mat-stepper-horizontal .mat-horizontal-stepper-header-container .mat-step-header:last-child .mat-step-icon {
+  background-color: #dc3545; /* Couleur de fond du bouton de fin de quiz */
+}
+/* Styles for the Next and Back buttons */
+button.mat-button.matStepperNext,
+button.mat-button.matStepperPrevious {
+  background-color: #007bff; /* Couleur de fond des boutons Next et Back */
+  color: #fff; /* Couleur du texte */
+  padding: 10px 20px; /* Espacement interne */
+  border: none; /* Suppression de la bordure */
+  border-radius: 5px; /* Arrondi des coins */
+  cursor: pointer; /* Curseur au survol */
+  transition: background-color 0.3s ease; /* Animation de transition */
+}
+
+button.mat-button.matStepperNext:hover,
+button.mat-button.matStepperPrevious:hover {
+  background-color: #0056b3; /* Couleur de fond des boutons Next et Back au survol */
+}
+
+/* Styles for the Submit Answer button */
+button.mat-button.submit-answer {
+  background-color: #28a745; /* Couleur de fond du bouton Submit Answer */
+  color: #fff; /* Couleur du texte */
+  padding: 10px 20px; /* Espacement interne */
+  border: none; /* Suppression de la bordure */
+  border-radius: 5px; /* Arrondi des coins */
+  cursor: pointer; /* Curseur au survol */
+  transition: background-color 0.3s ease; /* Animation de transition */
+}
+
+button.mat-button.submit-answer:hover {
+  background-color: #218838; /* Couleur de fond du bouton Submit Answer au survol */
+}
+.button-container {
+  display: flex; /* Utiliser un affichage flex */
+  justify-content: space-between; /* Espacement égal entre les boutons */
+}
+/* Styles for the End of the quiz button */
+button.mat-button.end-quiz {
+  background-color: #dc3545; /* Couleur de fond du bouton de fin de quiz */
+  color: #fff; /* Couleur du texte */
+  padding: 10px 20px; /* Espacement interne */
+  border: none; /* Suppression de la bordure */
+  border-radius: 5px; /* Arrondi des coins */
+  cursor: pointer; /* Curseur au survol */
+  transition: background-color 0.3s ease; /* Animation de transition */
+}
+
+button.mat-button.end-quiz:hover {
+  background-color: #c82333; /* Couleur de fond du bouton de fin de quiz au survol */
+}
+
+
+.card1 {
+  width: 400px; /* Largeur de la carte */
+  margin: 0 auto; /* Centrer la carte */
+  margin-top: 50px; /* Marge supérieure */
+  border-radius: 10px; /* Bord arrondi */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: rgb(251, 251, 254);  /* Ombre légère */
+}
+
+.card-body {
+  padding: 20px; /* Espacement interne */
+}
+
+.card-title {
+  font-size: 1.5rem; /* Taille de la police du titre */
+  margin-bottom: 20px; /* Marge inférieure */
+}
+
+.form-label {
+  font-weight: bold; 
+  /* Couleur de fond bleu marine */
+  border-color: navy;/* Police en gras pour les étiquettes */
+}
+
+.form-control {
+  margin-bottom: 15px; /* Marge inférieure pour les champs de saisie */
+}
+
+.btn-primary {
+  background-color: navy; /* Couleur de fond bleu marine */
+  border-color: navy; /* Couleur de la bordure bleu marine */
+  width: 50%; /* Largeur de 50% pour le bouton */
+}
+
+.container {
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.quiz-card {
+  text-align: center;
+}
+
+h2, h3 {
+  margin: 10px 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #0f15c9;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 50px;
+}
+
+button:hover {
+  background-color: #1c08b4;
+}
+
+button:focus {
+  outline: none;
+}
+
+p {
+  margin-bottom: 10px;
+}

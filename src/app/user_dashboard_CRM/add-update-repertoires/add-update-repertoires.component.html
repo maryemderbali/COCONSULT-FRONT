@@ -1,0 +1,46 @@
+<div mat-dialog-title>
+    <h1>Repertoire Form</h1>
+</div>
+<form [formGroup]="repertoireForm" (ngSubmit)="onFormSubmit()">
+    <div mat-dialog-content class="content">
+        <div class="row">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Contact</mat-label>
+                <input matInput formControlName="contact" placeholder="Enter contact">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Numtel</mat-label>
+                <input matInput formControlName="numTel" placeholder="Enter numtel">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" placeholder="Enter email">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Type of Contact</mat-label>
+                <mat-select formControlName="typeContact" placeholder="Select type of contact">
+                    <mat-option value="FORNISSEUR">FORNISSEUR</mat-option>
+                    <mat-option value="CLIENT">CLIENT</mat-option>
+                    <mat-option value="PARTENAIRE">PARTENAIRE</mat-option>
+                    <mat-option value="QUALIFIED_LEAD">QUALIFIED LEAD</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Priority</mat-label>
+                <mat-select formControlName="priorite" placeholder="Select priority">
+                    <mat-option value="FAIBLE">FAIBLE</mat-option>
+                    <mat-option value="MOYENNE">MOYENNE</mat-option>
+                    <mat-option value="ELEVEE">ELEVEE</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    <div mat-dialog-actions class="action">
+        <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button> 
+        <button mat-raised-button color="primary" type="submit">{{data ? 'Update': 'Save'}}</button> 
+    </div>
+</form>

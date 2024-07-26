@@ -1,0 +1,52 @@
+<!-- evaluation.component.html -->
+<div class="evaluation-form">
+    <h2>Evaluation Manager</h2>
+    <form (ngSubmit)="submitForm()">
+        <div class="form-group">
+            <label>User:</label>
+            <p>{{ selectedUser?.name }}</p>
+        </div>
+
+        <div class="form-group">
+            <label for="evaluationRange">Niveau(0-10):</label>
+            <input type="range" id="evaluationRange" name="evaluationRange" [(ngModel)]="evaluationRange" min="0" max="10" required>
+            <span class="range-value">{{ evaluationRange }}</span>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" [(ngModel)]="description" rows="4" cols="50" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <fieldset>
+                <legend>Evaluator Type:</legend>
+                <label>
+                    <input type="checkbox" [checked]="evaluatorType === 'HR'" (change)="evaluatorType = 'HR'" /> HR
+                </label>
+                <label>
+                    <input type="checkbox" [checked]="evaluatorType === 'Manager'" (change)="evaluatorType = 'Manager'" /> Manager
+                </label>
+            </fieldset>
+        </div>
+
+        <!-- Additional criteria for the manager evaluation -->
+        <div class="form-group">
+            <label for="criteria1">rendement</label>
+            <input type="range" id="criteria1" name="criteria1" [(ngModel)]="criteria1" min="0" max="10" required>
+            <span class="range-value">{{ criteria1 }}</span>
+        </div>
+        <div class="form-group">
+            <label for="criteria2">flexibilité:</label>
+            <input type="range" id="criteria2" name="criteria2" [(ngModel)]="criteria2" min="0" max="10" required>
+            <span class="range-value">{{ criteria2 }}</span>
+        </div>
+        <div class="form-group">
+            <label for="criteria3">pointage:</label>
+            <input type="range" id="criteria3" name="criteria3" [(ngModel)]="criteria3" min="0" max="10" required>
+            <span class="range-value">{{ criteria3 }}</span>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>

@@ -1,0 +1,135 @@
+<div class="main-content" style="background-image: url('https://th.bing.com/th/id/R.caafc6386858edeaef38e0cddb4df823?rik=UC7DHZO3ebFMNw&riu=http%3a%2f%2fwww.meseconomies.fr%2fwp-content%2fuploads%2f2017%2f08%2fNous-sommes-tous-chef-de-projet-mais-tout-le-monde-ne-sait-pas-gerer-un-projet.jpg&ehk=RJrwKqXgdKApUiSEaKDgW0Jd1b2Xox30Q0kkhbzut9Q%3d&risl=&pid=ImgRaw&r=0'); background-size: contain; background-position: right;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Button to trigger modal for Add Assignment -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addAssignmentModal">Add Assignment</button>
+            </div>
+        </div>
+        <!-- Assignment List Section -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="cardo" style="position: absolute">
+                    <div class="card-header card-header-danger" style="position: relative; z-index: 1;">
+                        <h4 class="card-title">Assignment List</h4>
+                    </div>
+                    <div class="card-body">
+                        <!-- Assignment Table Here -->
+                        <div class="table-responsive" style="height: 600px; overflow-y: scroll;">
+                            <table class="table100">
+                                <!-- Table Headers -->
+                                <thead class="text-primary">
+                                <tr class="table100-head">
+                                    <th><i class="fas fa-id-card"></i> ID</th>
+                                    <th><i class="fas fa-clock"></i> Time Recording</th>
+                                    <th><i class="fas fa-money-bill-alt"></i> Expenses</th>
+                                    <th><i class="fas fa-project-diagram"></i>Projet Affecté</th>
+                                    <th><i class="fas fa-tasks"></i> Actions</th>
+
+                                </tr>
+                                </thead>
+                                <!-- Table Body -->
+                                <tbody>
+                                <!-- Assignment Rows Here -->
+                                <tr *ngFor="let assignment of pagedAssignments">
+                                    <td>{{ assignment.idAssign }}</td>
+                                    <td>{{ assignment.timeRecording | date:'dd/MM/yyyy' }}</td>
+                                    <td>{{ assignment.expenses }}</td>
+                                    <td (click)="redirectToProjectDetails(assignment.projects.idProjet)">
+                                        {{ assignment.projects.idProjet }}
+                                    </td>
+
+                                    <td>
+                                        <!-- Edit Button -->
+                                        <button type="button" class="btn btn-info" (click)="openEditModal(assignment)" data-toggle="modal" data-target="#editAssignmentModal">
+                                            Edit
+                                        </button>
+                                        <!-- Delete Button -->
+                                        <button type="button" class="btn btn-danger" (click)="deleteAssignment(assignment.idAssign)">
+                                            Delete
+                                        </button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <!-- Pagination -->
+                            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="pageSize" [length]="assignments.length" (page)="onPageChange($event)">
+                            </mat-paginator>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal for Add Assignment -->
+        <!-- Modal for Add Assignment -->
+        <div class="modal fade" id="addAssignmentModal" tabindex="-1" role="dialog" aria-labelledby="addAssignmentModalLabel" aria-hidden="true">
+            <!-- Content of Add Assignment Modal -->
+            <form (ngSubmit)="createAssignmentsForProjects()">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="addAssignmentModalLabel">Add Assignment</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Form to add assignment -->
+                            <div class="form-group">
+                                <label for="projectId">Project</label>
+                                <select class="form-control" id="projectId" name="projectId" [(ngModel)]="selectedProjectId" required>
+                                    <option *ngFor="let project of projects" [value]="project.idProjet">{{ project.projetTitle }}</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="timeRecording">Time Recording</label>
+                                <input type="date" class="form-control" id="timeRecording" name="timeRecording" [(ngModel)]="newAssignment.timeRecording" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="expenses">Expenses</label>
+                                <input type="number" class="form-control" id="expenses" name="expenses" [(ngModel)]="newAssignment.expenses" required>
+                            </div>
+                            <!-- Add more fields as needed -->
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Save Assignment</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+        <!-- Modal for Edit Assignment -->
+        <div class="modal fade" id="editAssignmentModal" tabindex="-1" role="dialog" aria-labelledby="editAssignmentModalLabel" aria-hidden="true">
+            <!-- Content of Edit Assignment Modal -->
+            <form (ngSubmit)="updateAssignment()">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="editAssignmentModalLabel">Edit Assignment</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Form to edit assignment -->
+                            <div class="form-group">
+                                <label for="editTimeRecording">Time Recording</label>
+                                <input type="date" class="form-control" id="editTimeRecording" name="editTimeRecording" [(ngModel)]="selectedAssignment.timeRecording" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="editExpenses">Expenses</label>
+                                <input type="number" class="form-control" id="editExpenses" name="editExpenses" [(ngModel)]="selectedAssignment.expenses" required>
+                            </div>
+                            <!-- Add more fields as needed -->
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

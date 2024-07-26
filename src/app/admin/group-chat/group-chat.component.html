@@ -1,0 +1,85 @@
+<div class="main-content">
+   
+    <div class="container-fluid">
+       <div class="row">
+           <div class="col-md-4">
+               <div class="cardo">
+                   <div class="card-header card-header-danger">
+                       <h4 class="card-title">Ajouter GroupChat</h4>
+                       <p class="card-category">Complete your GroupChat</p>
+                   </div>
+               <div class="card-body">
+   
+               <form [formGroup]="groupChatForm" (ngSubmit)="saveGroupChat()">
+                   <div class="row">
+                       <div class="col-md-12">
+                           <label>Group Title</label>
+                           <mat-form-field class="example-full-width">
+                               <input matInput placeholder="Group Title" type="text" formControlName="groupTitle">
+                           </mat-form-field>
+                       </div>
+                   </div>
+                   <div class="row">
+                       <div class="col-md-12">
+                           <label>Rules</label>
+                           <mat-form-field class="example-full-width">
+                               <input matInput placeholder="Enter Rules" type="text" formControlName="rules">
+                           </mat-form-field>
+                       </div>
+                   </div>
+                   <div class="row">
+                       <div class="col-md-12">
+                           <label>Role</label>
+                           <mat-form-field class="example-full-width">
+                               <mat-select formControlName="role">
+                                   <mat-option *ngFor="let role of roleOptions" [value]="role">{{ role }}</mat-option>
+                               </mat-select>
+                           </mat-form-field>
+                       </div>
+                   </div>
+                   
+                   <div class="row">
+                    <div class="col-md-12">
+                      <label>Users</label>
+                      <mat-form-field class="example-full-width">
+                        <mat-select multiple  formControlName="selectedUsers" >
+                          <mat-option *ngFor="let user of usersByRole" [value]="user.id">{{ user.name }}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                   <button mat-raised-button type="submit" class="btno btn-danger pull-right btn">Submit</button>
+                   <div class="clearfix"></div>
+               </form>
+               </div>
+               </div>
+          
+           </div>
+             <div class="col-md-8">
+                    <button class="btn btn-danger " style="margin-bottom: 20px;" (click)="refreshData()">Refresh Data</button>
+                                 
+                                <div class="card-container" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+                                    <div *ngFor="let GroupChat of HRGPCHAT" class="parent card1">
+                                        <app-card-gpchat [GroupChat]="GroupChat" [idGPCHAT]="GroupChat.id" [cardContent]="GroupChat.rules" [cardTitle]="GroupChat.groupTitle"[cardrole]="GroupChat.role.name"></app-card-gpchat>
+                                    </div>
+                                    <div *ngFor="let GroupChat of PMGPCHAT" class="parent card2">
+                                        <app-card-gpchat [GroupChat]="GroupChat" [idGPCHAT]="GroupChat.id" [cardContent]="GroupChat.rules" [cardTitle]="GroupChat.groupTitle" [cardrole]="GroupChat.role.name"></app-card-gpchat>
+                                    </div>
+                                    <div *ngFor="let GroupChat of EmployeeGPCHAT" class="parent card3">
+                                        <app-card-gpchat [GroupChat]="GroupChat" [idGPCHAT]="GroupChat.id" [cardContent]="GroupChat.rules" [cardTitle]="GroupChat.groupTitle"[cardrole]="GroupChat.role.name"></app-card-gpchat>
+                                    </div>
+                                    <div *ngFor="let GroupChat of ManagerGPCHAT" class="parent card1">
+                                        <app-card-gpchat [GroupChat]="GroupChat" [idGPCHAT]="GroupChat.id" [cardContent]="GroupChat.rules" [cardTitle]="GroupChat.groupTitle"[cardrole]="GroupChat.role.name"></app-card-gpchat>
+                                    </div>
+                                    <div *ngFor="let GroupChat of ConsultGPCHAT" class="parent card2">
+                                        <app-card-gpchat [GroupChat]="GroupChat" [idGPCHAT]="GroupChat.id" [cardContent]="GroupChat.rules" [cardTitle]="GroupChat.groupTitle"[cardrole]="GroupChat.role.name"></app-card-gpchat>
+                                    </div>
+                                    <div *ngFor="let GroupChat of CRMGPCHAT" class="parent card2">
+                                        <app-card-gpchat [GroupChat]="GroupChat" [idGPCHAT]="GroupChat.id" [cardContent]="GroupChat.rules" [cardTitle]="GroupChat.groupTitle"[cardrole]="GroupChat.role.name"></app-card-gpchat>
+                                    </div>
+                                </div>
+               </div>         
+        </div>
+    </div>
+</div>
+   

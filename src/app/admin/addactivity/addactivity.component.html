@@ -1,0 +1,41 @@
+<div class="popup-container">
+  <div class="popup-content">
+    <h1>Ajouter une activité</h1>
+    <form (ngSubmit)="addActivity()" [formGroup]="activityForm">
+      <div class="form-group">
+        <label>Nombre de tâches:</label>
+        <input type="number" formControlName="nbreOfTask" placeholder="At least 1" (input)="onAddTask()">
+      </div>
+      
+      <div formArrayName="tasks">
+        <div *ngFor="let task of taskControls; let i=index">
+          <div [formGroupName]="i">
+            <div class="form-group">
+              <label>Contenu de l'activité:</label>
+              <textarea formControlName="activityContent" placeholder="Saisissez le contenu de l'activité ici"></textarea>
+            </div>
+            <div class="form-group">
+              <label>Type de tâche:</label>
+              <select formControlName="taskType">
+                <option *ngFor="let type of taskTypes" [value]="type">{{type}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Projet:</label>
+        <select formControlName="projetTitle">
+          <option *ngFor="let project of projects" [value]="project.projetTitle">{{ project.projetTitle }}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <button mat-button type="button" (click)="onAddTask()">Ajouter une tâche</button>
+      </div>
+      <div class="form-group">
+        <button mat-button (click)="onCancel()">Annuler</button>
+        <button type="submit">Ajouter</button>
+      </div>
+    </form>
+  </div>
+</div>

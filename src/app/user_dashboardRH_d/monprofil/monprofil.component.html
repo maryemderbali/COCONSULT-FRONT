@@ -1,0 +1,105 @@
+<button class="btn btn-danger " (click)="calculer()">calculer votre empreinte carbone !</button>
+
+<div class="row">
+
+    <div class="col-md-4">
+        <div class="cardo card-chart"  >
+            <div class="card-header card-header-success">
+                <div class="ct-chart" id="dailySalesChart"></div>
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">emission par utilisation du PC</h4>
+                <p class="card-category" >
+                    <span class="text-success"><i class="fa fa-long-arrow-up"></i>votre bilan transport est"{{bilan?.sum_works_carbo}}"</span> augmentation dans votre bilan.</p>
+            </div>
+            <div class="card-footer">
+                <div class="stats">
+                    <i class="material-icons">access_time</i> mise à jour 2 seconde avant
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="cardo card-chart">
+            <div class="card-header card-header-info">
+                <div class="ct-chart" id="websiteViewsChart"></div>
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">Emission par le regime alimentaire </h4>
+                <p class="card-category"><span class="text-success"><i class="fa fa-long-arrow-up"></i>votre bilan transport est"{{bilan?.sum_alimontation_carbo}}"</span> votre regime est deséquilibré!</p>
+            </div>
+            <div class="card-footer">
+                <div class="stats">
+                    <i class="material-icons">access_time</i> mise à jour 2 seconde avant
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="cardo card-chart">
+            <div class="card-header card-header-danger">
+                <div class="ct-chart" id="completedTasksChart"></div>
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">Emission par envoie Email</h4>
+                <p class="card-category">votre envoie du mail quotidien est deséquilibré!</p>
+            </div>
+            <div class="card-footer">
+                <div class="stats">
+                    <i class="material-icons">access_time</i> mise à jour 2 seconde avant
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="cardo card-chart">
+            <div class="card-header card-header-warning">
+                <div id="carbonFootprintChart"></div>
+
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">transport co2-emissions</h4>
+                <p class="card-category"><span class="text-success"><i class="fa fa-long-arrow-up"></i>votre bilan transport est"{{bilan?.sum_transport_carbo}}"</span>votre pourcentage dans cet partie est importante!</p>
+            </div>
+            <div class="card-footer">
+                <div class="stats">
+                    <i class="material-icons">access_time</i>  mise à jour 2 seconde avant
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="cardo card-chart">
+            <div class="card-header card-header-primary">
+                <div id="carbonFootprintRadarChart" class="ct-chart"></div>
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">Emission par utilisation du telephone</h4>
+                <p class="card-category">
+                    <span class="text-success"><i class="fa fa-long-arrow-up"></i> 30% </span> augmentation d'utilisation du votre appareil lors du votre travail.</p>
+            </div>
+            <div class="card-footer">
+                <div class="stats">
+                    <i class="material-icons">access_time</i> mise à jour 2 seconde avant
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="cardo card-chart">
+            <div class="card-header card-header-info">
+                <div id=""></div>
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">Emission par votre resources</h4>
+                <p class="card-category">
+                    <span class="text-success"><i class="fa fa-long-arrow-up"></i> votre bilan transport est"{{bilan?.sum_resources_carbo}}"</span> Mauvaise exploitation du votre resource.</p>
+            </div>
+            <div class="card-footer">
+                <div class="stats">
+                    <i class="material-icons">access_time</i> mise à jour 2 seconde avant
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,106 @@
+.add-ask-form {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f4f4f2;  /* Un fond clair pour permettre aux couleurs de se démarquer */
+  border: 1px solid #ff9800;  /* Bordure orange */
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  color: #0057b3;  /* Bleu */
+  margin-bottom: 5px;
+  font-size: 16px;
+  animation: slideInFromLeft 0.5s ease-in-out forwards;
+}
+
+@keyframes slideInFromLeft {
+  from { opacity: 0; transform: translateX(-100px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select,
+input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+input[type="text"]:hover,
+input[type="number"]:hover,
+input[type="date"]:hover,
+select:hover,
+input[type="file"]:hover {
+  border-color: #ff9800;  /* Orange au survol */
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+select:focus,
+input[type="file"]:focus {
+  border-color: #0057b3;  /* Bleu au focus */
+  box-shadow: 0 0 8px rgba(0, 86, 179, 0.5);
+  outline: none;
+}
+
+select {
+  cursor: pointer;
+  animation: popIn 0.6s ease-in-out;
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.8); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+input[type="file"] {
+  padding: 5px;
+  background-color: #fff;
+  border: 1px dashed #ff9800;  /* Orange pour la bordure du fichier */
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #0057b3;  /* Bleu */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+button:hover {
+  background-color: #004494;  /* Un bleu plus foncé au survol */
+  transform: translateY(-2px);
+}
+
+button:focus {
+  outline: none;
+}

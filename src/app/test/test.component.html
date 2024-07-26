@@ -1,0 +1,67 @@
+<app-navbardorra></app-navbardorra>
+
+<main>
+  <section class="section section-shaped section-lg">
+    <div class="shape shape-style-1 bg-gradient-default">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <main>
+      <h2 class="moving-title">Our Jobopport</h2>
+        <div class="container">
+          <button class="fa fa-briefcase custom-button" aria-hidden="true" (click)="openJobOpportModal()" style="vertical-align: middle;">
+            our job opport
+        </button>
+        
+        </div>
+    
+      
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-6">
+           
+              <video width="640" height="360" controls autoplay>
+                  <source src="assets/We're Hiring!.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+              </video>
+          </div>
+          
+          <div class="col-lg-6">
+            <div class="card">
+              <div class="card-header">Chat</div>
+              <div class="card-body height3">
+                <!-- Champ d'entrée pour poser une question -->
+                <div class="input-container">
+                  <input type="text" id="question" [(ngModel)]="question" placeholder="Posez votre question ici...">
+                  <button (click)="askQuestion()">Poser</button>
+                </div>
+                <!-- Afficher les messages de chat -->
+                <ul class="chat-list">
+                  <li *ngFor="let message of chatMessages" [class.in]="message.sender === 'bot'" [class.out]="message.sender === 'user'">
+                    <div class="chat-img">
+                      <img alt="Avtar" src="https://bootdey.com/img/Content/avatar/{{ message.sender === 'bot' ? 'avatar1' : 'avatar6' }}.png">
+                    </div>
+                    <div class="chat-body">
+                      <div class="chat-message">
+                        <p>{{ message.text }}</p>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      

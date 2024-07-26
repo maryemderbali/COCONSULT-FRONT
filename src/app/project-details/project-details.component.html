@@ -1,0 +1,19 @@
+<div class="project-details">
+    <div class="project-detail">
+        <div class="project-header">
+            <h3>{{ projectDetails.projetTitle }}</h3>
+            <span [ngClass]="{'status-validated': projectDetails.valid, 'status-not-validated': !projectDetails.valid}">
+                {{ projectDetails.valid ? 'Validated' : 'Not Validated' }}
+            </span>
+        </div>
+        <div class="project-info">
+            <p><strong>ID:</strong> {{ projectDetails.idProjet }}</p>
+            <p><strong>Budget:</strong> {{ projectDetails.budget }}</p>
+            <p><strong>Mail:</strong> {{ projectDetails.mail }}</p>
+            <p><strong>Start Date:</strong> {{ projectDetails.dateDebut }}</p>
+            <p><strong>End Date:</strong> {{ projectDetails.dateFin }}</p>
+            <p><strong>Staff:</strong> {{ projectDetails.effectif }}</p>
+            <p><strong>Description:</strong> {{ projectDetails.description }}</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="container">
+    <button class="btn btn-danger " (click)="refreshData()">Refresh Data</button>
+  
+    <div class="card-container">
+  
+  
+      <div *ngFor="let solution of foodSolutions" class="parent card1">
+        <app-card [cardContent]="solution.description" [cardTitle]="solution.titre"></app-card>
+      </div>
+    
+      <div *ngFor="let solution of workSolutions" class="parent card2">
+        <app-card [cardContent]="solution.description" [cardTitle]="solution.titre"></app-card>
+      </div>
+    
+      <div *ngFor="let solution of transportSolutions" class="parent card3">
+        <app-card [cardContent]="solution.description" [cardTitle]="solution.titre"></app-card>
+      </div>
+    
+      <div *ngFor="let solution of resourcesSolutions" class="parent card4">
+        <app-card [cardContent]="solution.description" [cardTitle]="solution.titre"></app-card>
+      </div>
+    </div>
+    </div>

@@ -1,0 +1,42 @@
+
+<app-navbardorra></app-navbardorra>
+<section class="section section-shaped section-lg">
+  <div class="shape shape-style-1 bg-gradient-default">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <section class="section section-shaped section-lg">
+    <!-- Votre contenu existant ici -->
+   
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <div>
+              <textarea [(ngModel)]="contenuReclamation" placeholder="Saisissez votre réclamation ici..." class="form-control"></textarea>
+            </div>
+            <div class="text-center mt-3">
+              <button class="button" (click)="startRecognition()">
+                <!-- Intégration de l'icône SVG -->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="microphone-icon">
+                  <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3s-3 1.34-3 3v6c0 1.66 1.34 3 3 3zm6-4c0 3.31-2.69 6-6 6s-6-2.69-6-6H1c0 4.97 4.03 9 9 9s9-4.03 9-9h-3z"/>
+                  <path d="M0 0h24v24H0z" fill="none"/>
+                </svg>
+              </button>
+              <button class="button ml-2" (click)="soumettreReclamation(mailcandidat)">Soumettre</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+  <section><section><section>

@@ -1,0 +1,29 @@
+<!-- evaluation.component.html -->
+<div class="evaluation-form">
+    <h2>Evaluation Form</h2>
+    <form (ngSubmit)="submitForm()">
+      <div class="form-group">
+        <label for="userSelect">Select User:</label>
+        <select id="userSelect" name="userSelect" [(ngModel)]="selectedUser">
+          <option *ngFor="let user of users" [value]="user.id">{{ user.name }}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="evaluationRange">Evaluation Range (0-10):</label>
+        <input type="range" id="evaluationRange" name="evaluationRange" [(ngModel)]="evaluationRange" min="0" max="10" required>
+        <span class="range-value">{{ evaluationRange }}</span>
+      </div>
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" [(ngModel)]="description" rows="4" cols="50" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="evaluatorType">Evaluator Type:</label>
+        <select id="evaluatorType" name="evaluatorType" [(ngModel)]="evaluatorType">
+          <option value="HR">HR</option>
+          <option value="Manager">Manager</option>
+        </select>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+</div>

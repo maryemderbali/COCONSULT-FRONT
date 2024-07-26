@@ -1,0 +1,35 @@
+/* Container for Conge Details */
+.conge-details-container {
+    margin-bottom: 20px;
+  }
+  
+  /* Individual Detail Section */
+  .conge-details-container div {
+    margin-bottom: 10px;
+  }
+  
+  /* Label Styling */
+  .conge-details-container label {
+    display: inline-block;
+    width: 100px;
+  }
+  
+  /* Input Field Styling */
+  .conge-details-container input[type="text"],
+  .conge-details-container input[type="date"] {
+    width: 200px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Button Container Styling */
+  .conge-details-container button {
+    margin-right: 10px;
+  }
+  
+  /* Icon Styling */
+  .conge-details-container button mat-icon {
+    font-size: 24px;
+  }
+  

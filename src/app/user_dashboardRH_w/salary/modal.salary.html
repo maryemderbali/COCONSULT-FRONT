@@ -1,0 +1,15 @@
+<!-- edit-salary-modal.component.html -->
+<h2>Edit Salary</h2>
+
+<div class="form-group">
+  <label for="editAmount">Amount:</label>
+  <input type="number" id="editAmount" [(ngModel)]="editedSalary.salaire" class="form-control">
+</div>
+
+<div class="form-group">
+  <label for="editCurrency">Currency:</label>
+  <input type="text" id="editCurrency" [(ngModel)]="editedSalary.currency" class="form-control">
+</div>
+
+<button class="btn btn-primary" (click)="saveChanges()">Save Changes</button>
+<button class="btn btn-secondary" (click)="closeModal()">Cancel</button>

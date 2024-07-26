@@ -1,0 +1,15 @@
+<!-- verification.component.html -->
+<div class="verification-container">
+    <h2>Verify Reminder</h2>
+    <div>
+        <label for="userSelect">Select User:</label>
+        <select id="userSelect" name="userSelect" [(ngModel)]="selectedUser">
+            <option *ngFor="let user of users" [value]="user.id">{{ user.name }}</option>
+        </select>
+    </div>
+    <div>
+        <label for="verificationCode">Enter Verification Code:</label>
+        <input type="text" id="verificationCode" name="verificationCode" [(ngModel)]="verificationCode">
+    </div>
+    <button (click)="verifyReminder()">Verify</button>
+</div>

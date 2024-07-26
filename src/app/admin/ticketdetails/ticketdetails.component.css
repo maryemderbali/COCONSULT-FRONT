@@ -1,0 +1,84 @@
+.ticket-details {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .ticket-details h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .ticket-details p {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .ticket-details .btn-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #999;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .ticket-details .btn-close:hover {
+    color: #333;
+  }
+  
+  @media (max-width: 576px) {
+    .ticket-details {
+      width: 90%;
+    }
+  }
+  .ticket-status-color {
+    /* Couleurs pour les différents états des tickets */
+  }
+  
+  .ticket-status-color.open {
+    color: #007bff; /* Bleu */
+  }
+  
+  .ticket-status-color.in-progress {
+    color: #ffc107; /* Jaune */
+  }
+  
+  .ticket-status-color.resolved {
+    color: #28a745; /* Vert */
+  }
+  
+  .ticket-status-color.closed {
+    color: #6c757d; /* Gris */
+  }
+  
+  .ticket-status-color.cancelled {
+    color: #dc3545; /* Rouge */
+  }
+  .ticket-priority-color {
+    /* Couleurs pour les différentes priorités des tickets */
+  }
+  
+  .ticket-priority-color.critical {
+    color: #dc3545; /* Rouge */
+  }
+  
+  .ticket-priority-color.high {
+    color: #ffc107; /* Jaune */
+  }
+  
+  .ticket-priority-color.medium {
+    color: #17a2b8; /* Cyan */
+  }
+  
+  .ticket-priority-color.low {
+    color: #28a745; /* Vert */
+  }
+  
+  
+  

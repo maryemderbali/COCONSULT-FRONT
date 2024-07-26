@@ -1,0 +1,18 @@
+<button mat-raised-button color="primary" (click)="openAddDialog()"style="width: 150px; text-decoration: aliceblue; font-size: 16px; background-color:rgb(196, 233, 48);">Add Quiz</button>
+
+<div class="container">
+  <div class="card" *ngFor="let quiz of quizzes"style=" text-decoration: aliceblue;  background-color:rgb(196, 233, 48)">
+    <div class="image">
+      <img [src]="'assets/images/quiz.avif'" alt="Quiz Image">
+    </div>
+    <div class="content">
+      <p>le sujet de ce quiz est {{ quiz.titre }}</p>
+      <p> ce quiz contien {{ quiz.numberOfQuestions }} questions</p>
+
+     
+     
+     <button (click)="openUpdateDialog(quiz)" mat-raised-button type="submit" class="btn btn-danger mx-auto mt-3 text-white" style="width: 150px; text-decoration: rgb(255, 255, 255); font-size: 16px; background-color: rgb(93, 93, 220);">Update</button>
+      <button (click)="openDeleteConfirmation(quiz)" mat-raised-button type="submit" class="btn btn-danger mx-auto mt-1 text-white" style="width: 150px; text-decoration: aliceblue; font-size: 16px; background-color: rgb(93, 93, 220);">Delete</button>
+    </div>
+  </div>
+</div>

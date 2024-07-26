@@ -1,0 +1,46 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="cardo">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Liste des équipes</h4>
+            <p class="card-category">Toutes les équipes</p>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <input type="text" [(ngModel)]="searchTerm" placeholder="Rechercher..." class="form-control mb-3">
+
+              <button (click)="openAddTeamDialog()" mat-raised-button color="primary" class="mt-3">Ajouter</button>
+
+              <table class="table">
+                <thead class="text-primary">
+                  <tr>
+                    <th>Identifiant de l'équipe</th>
+                    <th>Nom de l'équipe</th>
+                    <th>Chef d'équipe</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let team of pagedTeams">
+                    <td>{{ team.idTeam }}</td>
+                    <td>{{ team.teamName }}</td>
+                    <td>{{ team.teamLeader }}</td>
+                    <td>
+                      <button (click)="editTeam(team.idTeam)" class="btn btn-primary">Éditer</button>
+                      <button (click)="deleteTeam(team.idTeam)" class="btn btn-danger">Supprimer</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="pageSize" [length]="teams.length" (page)="onPageChange($event)">
+              </mat-paginator>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

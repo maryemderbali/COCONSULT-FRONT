@@ -1,0 +1,58 @@
+<div class="container mt-4">
+    <h2>Demande de Congé</h2>
+
+    <mat-table [dataSource]="demandes" class="mat-elevation-z8">
+  
+      <!-- User Column -->
+      <ng-container matColumnDef="user">
+        <mat-header-cell *matHeaderCellDef> User </mat-header-cell>
+        <mat-cell *matCellDef="let demande"> {{ demande.user.name }} </mat-cell>
+      </ng-container>
+  
+      <!-- Duration Column -->
+      <ng-container matColumnDef="duration">
+        <mat-header-cell *matHeaderCellDef> Duration </mat-header-cell>
+        <mat-cell *matCellDef="let demande"> {{ demande.duration }} </mat-cell>
+      </ng-container>
+  
+      <!-- Start Date Column -->
+      <ng-container matColumnDef="startDate">
+        <mat-header-cell *matHeaderCellDef> Start Date </mat-header-cell>
+        <mat-cell *matCellDef="let demande"> {{ demande.startDate | date: 'yyyy-MM-dd'  }} </mat-cell>
+      </ng-container>
+  
+      <!-- Type Column -->
+      <ng-container matColumnDef="type">
+        <mat-header-cell *matHeaderCellDef> Type </mat-header-cell>
+        <mat-cell *matCellDef="let demande"> {{ demande.type }} </mat-cell>
+      </ng-container>
+  
+      <!-- Certificate Column -->
+      <ng-container matColumnDef="certificate">
+        <mat-header-cell *matHeaderCellDef> Autorisation </mat-header-cell>
+        <mat-cell *matCellDef="let demande">
+          <button  (click)="downloadFile(demande)">{{demande.certificateFileName}}</button>
+        </mat-cell>
+      </ng-container>
+
+           <!-- Action Column -->
+<!-- Action Column -->
+<!-- Action Column -->
+<ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+    <mat-cell *matCellDef="let demande">
+      <mat-icon (click)="approveDemande(demande)" style="cursor: pointer">done</mat-icon>
+      <mat-icon (click)="declineDemande(demande)" style="cursor: pointer">clear</mat-icon>
+    </mat-cell>
+  </ng-container>
+  
+
+  
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+  </div>
+  

@@ -1,0 +1,12 @@
+<div [ngClass]="'parent card' + determineCardClass()">
+  <div class="card">
+      <div class="content-box">
+        <h1 class="card-title">COCONSULT team vous informe :</h1>
+        <p class="card-content">{{ cardContent }}</p>
+      </div>
+      <span class="see-more">See More</span>
+    </div>
+    <div class="ico-box">
+      <span class="ico">{{ cardTitle }}</span>
+    </div>
+  </div>
